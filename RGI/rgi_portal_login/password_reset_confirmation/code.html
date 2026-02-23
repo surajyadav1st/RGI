@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Security Audit Log | RGI Partner Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec1313",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221010",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .active-nav { border-left: 4px solid #ec1313; background-color: rgba(236, 19, 19, 0.05); }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
+<div class="flex min-h-screen">
+<!-- Sidebar Navigation -->
+<aside class="w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col sticky top-0 h-screen">
+<div class="p-6 flex items-center gap-3">
+<div class="h-10 w-10 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-2xl">shield_person</span>
+</div>
+<div>
+<h1 class="font-bold text-sm leading-tight">RGI Partner Portal</h1>
+<p class="text-xs text-slate-500">Partner Administration</p>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1 mt-4">
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="text-sm font-medium">Quotes</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="text-sm font-medium">Underwriting</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">report_problem</span>
+<span class="text-sm font-medium">Claims</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="text-sm font-medium">Reports</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-primary bg-primary/5 rounded-lg transition-colors border-r-4 border-primary" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-semibold">Settings</span>
+</a>
+</nav>
+<div class="p-4 mt-auto border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3 p-2">
+<div class="h-8 w-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+<img alt="User Profile" data-alt="Corporate professional avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7gFtFHltwZ9GHjF-JFMKqt6_JngBrVlA64AkugrQeby1Rm7kd3VRQIcSD5IGlfd4F11HlXuP6l0kMlykQD4QpSaWQYWVs0pKxPfbpmOGbk7mI-oRu5b8u9XLkyVXDsLvln_nflRDkCx069_2zo84jYFWWIZZ1ubCwRaodMfjXvo4ZWccV5Olzh-ROVmMxhjZT68TiP1jVWjc1NOIywk78naQ_wenI-dey_yxkZYb7OKpY1vnxUdwHbxTzohLHCZ-HIb8Y3Avaqi-w"/>
+</div>
+<div class="overflow-hidden">
+<p class="text-xs font-bold truncate">Admin User</p>
+<p class="text-[10px] text-slate-500 truncate">admin@rgi-portal.com</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col min-w-0">
+<!-- Header Area -->
+<header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 p-6">
+<div class="flex flex-wrap gap-2 text-xs font-medium text-slate-400 mb-4 uppercase tracking-wider">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span>/</span>
+<a class="hover:text-primary transition-colors" href="#">Settings</a>
+<span>/</span>
+<span class="text-slate-900 dark:text-slate-100">Security Audit Log</span>
+</div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="max-w-2xl">
+<h2 class="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100">Security Audit Log</h2>
+<p class="mt-1 text-sm text-slate-500 dark:text-slate-400">
+                            Track and monitor all security-related activities and system access across your account for compliance and forensic auditing.
+                        </p>
+</div>
+<div class="flex gap-2">
+<button class="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-lg text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all">
+<span class="material-symbols-outlined text-lg">picture_as_pdf</span>
+                            PDF
+                        </button>
+<button class="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg text-sm font-semibold hover:bg-primary/90 transition-all shadow-sm shadow-primary/20">
+<span class="material-symbols-outlined text-lg">download</span>
+                            Export Log (CSV)
+                        </button>
+</div>
+</div>
+</header>
+<!-- Metrics Summary -->
+<section class="p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Total Events</span>
+<span class="material-symbols-outlined text-slate-400">history</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-extrabold text-slate-900 dark:text-slate-100">12,842</span>
+<span class="text-xs font-bold text-green-600">+5.2%</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Failed Logins (24h)</span>
+<span class="material-symbols-outlined text-primary">warning</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-extrabold text-slate-900 dark:text-slate-100">14</span>
+<span class="text-xs font-bold text-red-600">-2.1%</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Active Sessions</span>
+<span class="material-symbols-outlined text-blue-500">sensors</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-extrabold text-slate-900 dark:text-slate-100">86</span>
+<span class="text-xs font-bold text-green-600">+12%</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm ring-1 ring-primary/20">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Critical Alerts</span>
+<span class="material-symbols-outlined text-primary">emergency_home</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-extrabold text-primary">3</span>
+<span class="px-1.5 py-0.5 bg-primary/10 text-[10px] text-primary rounded font-bold italic">Requires Action</span>
+</div>
+</div>
+</section>
+<!-- Filters -->
+<section class="px-6 pb-6">
+<div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-wrap items-end gap-4">
+<div class="flex-1 min-w-[200px]">
+<label class="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Search User / IP</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-800 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search by name, email or IP..." type="text"/>
+</div>
+</div>
+<div class="w-full md:w-48">
+<label class="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Event Type</label>
+<select class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/20 transition-all appearance-none cursor-pointer">
+<option>All Events</option>
+<option>Login</option>
+<option>Settings Change</option>
+<option>Quote Access</option>
+<option>Admin Action</option>
+</select>
+</div>
+<div class="w-full md:w-48">
+<label class="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Date Range</label>
+<select class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/20 transition-all appearance-none cursor-pointer">
+<option>Last 24 Hours</option>
+<option>Last 7 Days</option>
+<option>Last 30 Days</option>
+<option>Custom Range</option>
+</select>
+</div>
+<button class="h-10 px-6 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 text-sm font-bold rounded-lg hover:opacity-90 transition-all">
+                        Filter Results
+                    </button>
+<button class="h-10 px-4 text-slate-500 text-sm font-medium hover:text-primary transition-all">
+                        Reset
+                    </button>
+</div>
+</section>
+<!-- Audit Log Table -->
+<section class="px-6 pb-12 flex-1">
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
+<th class="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">Timestamp</th>
+<th class="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">User</th>
+<th class="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">Event Type</th>
+<th class="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">Description</th>
+<th class="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">IP &amp; Device</th>
+<th class="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap text-xs font-medium text-slate-500">
+                                        Oct 24, 2023 <br/>
+<span class="text-[10px] text-slate-400">14:22:18 PM</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xs font-bold">JD</div>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-slate-100 cursor-pointer hover:text-primary" onclick="document.getElementById('user-profile-modal').classList.remove('hidden')">John Doe</p>
+<p class="text-[10px] text-slate-500">j.doe@partner.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-[10px] font-bold rounded text-slate-600 dark:text-slate-400 uppercase">Quote Access</span>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm text-slate-700 dark:text-slate-300">Viewed high-value Quote <span class="font-mono text-primary font-bold">#Q-2023-849</span></p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<p class="text-xs font-mono text-slate-600 dark:text-slate-400">192.168.1.45</p>
+<p class="text-[10px] text-slate-400">Chrome / macOS</p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">
+<span class="h-1 w-1 rounded-full bg-green-500"></span> Success
+                                        </span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors bg-red-50/30 dark:bg-primary/5">
+<td class="px-6 py-4 whitespace-nowrap text-xs font-medium text-slate-500">
+                                        Oct 24, 2023 <br/>
+<span class="text-[10px] text-slate-400">13:05:44 PM</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 text-xs font-bold">?</div>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-slate-100 cursor-pointer hover:text-primary">Unknown</p>
+<p class="text-[10px] text-slate-500">s.smith@attacker.net</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2 py-1 bg-red-100 dark:bg-red-900/40 text-[10px] font-bold rounded text-red-700 dark:text-red-400 uppercase">Login Failure</span>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm text-slate-700 dark:text-slate-300">Multiple failed login attempts (5x)</p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<p class="text-xs font-mono text-slate-600 dark:text-slate-400">45.22.190.11</p>
+<p class="text-[10px] text-slate-400">Firefox / Linux</p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-primary text-white">
+<span class="h-1 w-1 rounded-full bg-white animate-pulse"></span> Critical
+                                        </span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap text-xs font-medium text-slate-500">
+                                        Oct 24, 2023 <br/>
+<span class="text-[10px] text-slate-400">11:50:02 AM</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xs font-bold">SA</div>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-slate-100 cursor-pointer hover:text-primary">Sarah Adams</p>
+<p class="text-[10px] text-slate-500">s.adams@rgi.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-[10px] font-bold rounded text-slate-600 dark:text-slate-400 uppercase">Admin Action</span>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm text-slate-700 dark:text-slate-300">Changed system-wide Commission Rules</p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<p class="text-xs font-mono text-slate-600 dark:text-slate-400">10.0.4.122</p>
+<p class="text-[10px] text-slate-400">Safari / iPadOS</p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">
+<span class="h-1 w-1 rounded-full bg-amber-500"></span> Warning
+                                        </span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap text-xs font-medium text-slate-500">
+                                        Oct 24, 2023 <br/>
+<span class="text-[10px] text-slate-400">09:15:30 AM</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xs font-bold">JD</div>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-slate-100 cursor-pointer hover:text-primary">John Doe</p>
+<p class="text-[10px] text-slate-500">j.doe@partner.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-[10px] font-bold rounded text-slate-600 dark:text-slate-400 uppercase">Settings Change</span>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm text-slate-700 dark:text-slate-300">Updated multi-factor authentication phone number</p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<p class="text-xs font-mono text-slate-600 dark:text-slate-400">192.168.1.45</p>
+<p class="text-[10px] text-slate-400">Chrome / macOS</p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">
+<span class="h-1 w-1 rounded-full bg-green-500"></span> Success
+                                        </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-6 py-4 bg-slate-50 dark:bg-slate-800/50 flex items-center justify-between border-t border-slate-200 dark:border-slate-800">
+<span class="text-xs text-slate-500">Showing 1 to 4 of 12,842 results</span>
+<div class="flex gap-2">
+<button class="px-3 py-1 border border-slate-300 dark:border-slate-600 rounded text-xs font-bold hover:bg-white dark:hover:bg-slate-700 disabled:opacity-50" disabled="">Previous</button>
+<button class="px-3 py-1 bg-primary text-white rounded text-xs font-bold">1</button>
+<button class="px-3 py-1 border border-slate-300 dark:border-slate-600 rounded text-xs font-bold hover:bg-white dark:hover:bg-slate-700">2</button>
+<button class="px-3 py-1 border border-slate-300 dark:border-slate-600 rounded text-xs font-bold hover:bg-white dark:hover:bg-slate-700">3</button>
+<span class="px-2 text-slate-400">...</span>
+<button class="px-3 py-1 border border-slate-300 dark:border-slate-600 rounded text-xs font-bold hover:bg-white dark:hover:bg-slate-700">Next</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- User Profile Modal Overlay -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm hidden" id="user-profile-modal">
+<!-- Modal Container -->
+<div class="bg-white dark:bg-slate-900 w-full max-w-lg rounded-xl shadow-2xl overflow-hidden flex flex-col">
+<!-- Modal Header -->
+<div class="px-6 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+<h3 class="text-lg font-extrabold text-slate-900 dark:text-slate-100">User Profile Details</h3>
+<button class="text-slate-400 hover:text-primary transition-colors" onclick="document.getElementById('user-profile-modal').classList.add('hidden')">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="overflow-y-auto max-h-[80vh]">
+<!-- Profile Summary -->
+<div class="p-6 flex items-center gap-4 border-b border-slate-100 dark:border-slate-800">
+<div class="h-16 w-16 rounded-full bg-slate-200 overflow-hidden ring-4 ring-slate-50 dark:ring-slate-800">
+<img alt="John Doe" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7gFtFHltwZ9GHjF-JFMKqt6_JngBrVlA64AkugrQeby1Rm7kd3VRQIcSD5IGlfd4F11HlXuP6l0kMlykQD4QpSaWQYWVs0pKxPfbpmOGbk7mI-oRu5b8u9XLkyVXDsLvln_nflRDkCx069_2zo84jYFWWIZZ1ubCwRaodMfjXvo4ZWccV5Olzh-ROVmMxhjZT68TiP1jVWjc1NOIywk78naQ_wenI-dey_yxkZYb7OKpY1vnxUdwHbxTzohLHCZ-HIb8Y3Avaqi-w"/>
+</div>
+<div>
+<h4 class="text-xl font-bold text-slate-900 dark:text-slate-100">John Doe</h4>
+<p class="text-sm text-slate-500">Senior Partner</p>
+<span class="inline-flex items-center mt-1 px-2 py-0.5 rounded text-[10px] font-bold bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 uppercase">
+                        Active
+                    </span>
+</div>
+</div>
+<!-- Contact Info -->
+<div class="p-6 border-b border-slate-100 dark:border-slate-800 grid grid-cols-2 gap-4">
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Email Address</p>
+<p class="text-sm font-medium text-slate-700 dark:text-slate-300">j.doe@partner.com</p>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Phone Number</p>
+<p class="text-sm font-medium text-slate-700 dark:text-slate-300">+1 (555) 123-4567</p>
+</div>
+</div>
+<!-- Security Stats -->
+<div class="p-6 border-b border-slate-100 dark:border-slate-800">
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-3">Security Overview</p>
+<div class="grid grid-cols-3 gap-4 bg-slate-50 dark:bg-slate-800/50 p-3 rounded-lg">
+<div class="text-center">
+<p class="text-[9px] font-bold text-slate-500 uppercase">Last Login</p>
+<p class="text-xs font-bold text-slate-900 dark:text-slate-100 mt-1">Oct 24, 14:22</p>
+</div>
+<div class="text-center border-x border-slate-200 dark:border-slate-700">
+<p class="text-[9px] font-bold text-slate-500 uppercase">IP Address</p>
+<p class="text-xs font-bold text-slate-900 dark:text-slate-100 mt-1">192.168.1.45</p>
+</div>
+<div class="text-center">
+<p class="text-[9px] font-bold text-slate-500 uppercase">2FA Status</p>
+<p class="text-xs font-bold text-green-600 mt-1 uppercase">Enabled</p>
+</div>
+</div>
+</div>
+<!-- Recent Activity -->
+<div class="p-6">
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-3">Recent Activity</p>
+<ul class="space-y-3">
+<li class="flex gap-3 text-xs">
+<span class="text-slate-400 font-mono">14:22</span>
+<span class="text-slate-700 dark:text-slate-300 font-medium">Viewed high-value Quote #Q-2023-849</span>
+</li>
+<li class="flex gap-3 text-xs">
+<span class="text-slate-400 font-mono">09:15</span>
+<span class="text-slate-700 dark:text-slate-300 font-medium">Updated MFA phone number</span>
+</li>
+<li class="flex gap-3 text-xs">
+<span class="text-slate-400 font-mono">Oct 23</span>
+<span class="text-slate-700 dark:text-slate-300 font-medium">Successfully logged in</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="px-6 py-4 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-800 flex justify-end gap-3">
+<button class="px-4 py-2 text-sm font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 transition-colors" onclick="document.getElementById('user-profile-modal').classList.add('hidden')">
+                Close
+            </button>
+<button class="px-4 py-2 border border-primary text-primary hover:bg-primary hover:text-white rounded-lg text-sm font-bold transition-all shadow-sm" onclick="document.getElementById('password-reset-confirm-modal').classList.remove('hidden')">
+                Reset Password
+            </button><button class="px-4 py-2 bg-primary text-white rounded-lg text-sm font-bold hover:bg-primary/90 transition-all shadow-sm">
+                Edit User Permissions
+            </button>
+</div>
+</div>
+</div><!-- Password Reset Confirmation Modal -->
+<div class="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-[2px] hidden" id="password-reset-confirm-modal">
+<div class="bg-white dark:bg-slate-900 w-full max-w-md rounded-xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-800">
+<div class="p-6 text-center">
+<div class="w-12 h-12 bg-red-100 dark:bg-red-900/30 text-primary rounded-full flex items-center justify-center mx-auto mb-4">
+<span class="material-symbols-outlined text-3xl">lock_reset</span>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-slate-100 mb-2">Reset Password?</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400">
+                Are you sure you want to reset the password for <span class="font-bold text-slate-900 dark:text-slate-100">John Doe</span>? This action will invalidate their current password and send a reset link to their email.
+            </p>
+</div>
+<div class="px-6 py-4 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row gap-3">
+<button class="flex-1 px-4 py-2 text-sm font-bold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors" onclick="document.getElementById('password-reset-confirm-modal').classList.add('hidden')">
+                Cancel
+            </button>
+<button class="flex-1 px-4 py-2 bg-primary text-white rounded-lg text-sm font-bold hover:bg-primary/90 transition-all shadow-sm">
+                Reset Password
+            </button>
+</div>
+</div>
+</div></body></html>

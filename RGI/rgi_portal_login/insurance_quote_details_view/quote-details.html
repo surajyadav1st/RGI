@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Insurance Quote Details View</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec1313",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221010",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Sticky Header & Nav -->
+<div class="sticky top-0 z-50 bg-white dark:bg-[#1a0a0a] border-b border-slate-200 dark:border-red-900/20 shadow-sm">
+<!-- Main Nav -->
+<header class="flex items-center justify-between px-6 py-3 lg:px-10">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-slate-900 dark:text-white">
+<div class="size-8 text-primary flex items-center justify-center bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined">shield_person</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-tight">Commercial Insurance Portal</h2>
+</div>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-slate-600 hover:text-primary dark:text-slate-400 dark:hover:text-primary text-sm font-medium transition-colors" href="#">Dashboard</a>
+<a class="text-primary text-sm font-bold bg-primary/5 px-3 py-1.5 rounded-full" href="#">Quotes</a>
+<a class="text-slate-600 hover:text-primary dark:text-slate-400 dark:hover:text-primary text-sm font-medium transition-colors" href="#">Policies</a>
+<a class="text-slate-600 hover:text-primary dark:text-slate-400 dark:hover:text-primary text-sm font-medium transition-colors" href="#">Reports</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center bg-slate-100 dark:bg-slate-800 rounded-lg px-3 py-1.5">
+<span class="material-symbols-outlined text-slate-400 text-[20px]">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48 text-slate-700 dark:text-slate-200 placeholder:text-slate-400" placeholder="Search quotes..."/>
+</div>
+<div class="size-9 rounded-full bg-cover bg-center border border-slate-200 dark:border-slate-700" data-alt="User profile picture" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDJcegVR5eAQYArc1YnUY5tgP484Oxw1NiTPeS4T6jGNbIFDB037NbDuhQMJigAyO2cOVjefcG8mRhi8BQmD6IAZBNSISEa7-u-8oHtY8zYyUBUct4gxboYRHkN37Ncb31P-1t9Sd7JqsyJdfIfc_f5nOXk7flAW5p4Q-mPfmJ5q88Lsg0yoxgPAsd6Dvy_4f4uehcpE7J7BhZDEa1sk-r42nNwT3XtnTN3HElpYKrVkacBjhEflO30PkVNxNEBX5RdIu-vcVgX7jS1');"></div>
+</div>
+</header>
+<!-- Action Bar -->
+<div class="px-6 py-4 lg:px-10 bg-white dark:bg-[#1a0a0a] flex flex-col md:flex-row md:items-center justify-between gap-4 border-t border-slate-100 dark:border-red-900/10">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-3">
+<h1 class="text-2xl font-black text-slate-900 dark:text-white tracking-tight">Quote #Q-2023-849</h1>
+<span class="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 text-xs font-bold uppercase tracking-wider border border-amber-200 dark:border-amber-800">Pending Review</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+                    Status: Underwriter Review • Assigned to: Ravi Kumar
+                </p>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 hover:bg-slate-50 dark:bg-transparent dark:border-slate-700 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 text-sm font-bold rounded-lg transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">help</span>
+                    Request Info
+                </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-white border border-red-200 hover:bg-red-50 dark:bg-transparent dark:border-red-900 dark:hover:bg-red-900/20 text-primary text-sm font-bold rounded-lg transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">block</span>
+                    Reject
+                </button>
+<button class="flex items-center gap-2 px-6 py-2 bg-primary hover:bg-red-700 text-white text-sm font-bold rounded-lg shadow-md shadow-red-500/20 transition-all">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+                    Approve Quote
+                </button>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<main class="flex-grow p-6 lg:p-10 max-w-[1600px] mx-auto w-full">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+<!-- LEFT COLUMN: Context (Client & Risk) -->
+<div class="lg:col-span-5 flex flex-col gap-6">
+<!-- Client Details Card -->
+<section class="bg-white dark:bg-[#1f1212] rounded-xl shadow-sm border border-slate-200 dark:border-red-900/10 overflow-hidden">
+<div class="px-5 py-4 border-b border-slate-100 dark:border-red-900/10 flex justify-between items-center bg-slate-50/50 dark:bg-white/5">
+<h3 class="font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">domain</span>
+                            Client Details
+                        </h3>
+<button class="text-primary text-xs font-bold hover:underline">View CRM Profile</button>
+</div>
+<div class="p-5">
+<div class="flex items-center gap-4 mb-6">
+<div class="size-12 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-400">
+<span class="material-symbols-outlined text-[28px]">factory</span>
+</div>
+<div>
+<h4 class="text-lg font-bold text-slate-900 dark:text-white">Apex Manufacturing Ltd.</h4>
+<p class="text-slate-500 text-sm">Automotive Components</p>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<div class="flex justify-between py-2 border-b border-dashed border-slate-100 dark:border-slate-800">
+<span class="text-slate-500 text-sm">Tax ID (GSTIN)</span>
+<span class="text-slate-900 dark:text-slate-200 text-sm font-semibold">27AAACCA1234H1Z5</span>
+</div>
+<div class="flex justify-between py-2 border-b border-dashed border-slate-100 dark:border-slate-800">
+<span class="text-slate-500 text-sm">Location</span>
+<span class="text-slate-900 dark:text-slate-200 text-sm font-semibold text-right">Pune, Maharashtra</span>
+</div>
+<div class="flex justify-between py-2 border-b border-dashed border-slate-100 dark:border-slate-800">
+<span class="text-slate-500 text-sm">Contact Person</span>
+<div class="text-right">
+<p class="text-slate-900 dark:text-slate-200 text-sm font-semibold">Vikram Singh</p>
+<p class="text-primary text-xs">vikram@apex-mfg.com</p>
+</div>
+</div>
+<div class="flex justify-between py-2">
+<span class="text-slate-500 text-sm">Client Since</span>
+<span class="text-slate-900 dark:text-slate-200 text-sm font-semibold">Oct 2018 (5 Years)</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Risk Information Card -->
+<section class="bg-white dark:bg-[#1f1212] rounded-xl shadow-sm border border-slate-200 dark:border-red-900/10 overflow-hidden">
+<div class="px-5 py-4 border-b border-slate-100 dark:border-red-900/10 flex justify-between items-center bg-slate-50/50 dark:bg-white/5">
+<h3 class="font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">warning</span>
+                            Risk Information
+                        </h3>
+<span class="px-2 py-0.5 bg-red-50 text-red-600 dark:bg-red-900/40 dark:text-red-300 rounded text-xs font-bold border border-red-100 dark:border-red-900/50">High Risk Category</span>
+</div>
+<div class="p-5">
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="bg-slate-50 dark:bg-slate-800/50 p-3 rounded-lg border border-slate-100 dark:border-slate-700">
+<p class="text-slate-500 text-xs font-medium uppercase tracking-wider mb-1">Risk Score</p>
+<p class="text-2xl font-black text-slate-800 dark:text-white">78<span class="text-sm font-medium text-slate-400">/100</span></p>
+</div>
+<div class="bg-slate-50 dark:bg-slate-800/50 p-3 rounded-lg border border-slate-100 dark:border-slate-700">
+<p class="text-slate-500 text-xs font-medium uppercase tracking-wider mb-1">Claims Ratio</p>
+<p class="text-2xl font-black text-primary">12%</p>
+</div>
+</div>
+<div class="space-y-4">
+<div>
+<h5 class="text-sm font-bold text-slate-800 dark:text-slate-200 mb-2">Occupancy Type</h5>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed bg-slate-50 dark:bg-slate-800 p-3 rounded border border-slate-100 dark:border-slate-700">
+                                    Industrial manufacturing of automotive metal parts using heavy machinery. Includes welding, forging, and high-pressure hydraulic systems.
+                                </p>
+</div>
+<div>
+<h5 class="text-sm font-bold text-slate-800 dark:text-slate-200 mb-2">Past Claims (Last 3 Yrs)</h5>
+<div class="flex items-start gap-3 p-3 border border-slate-100 dark:border-slate-700 rounded-lg">
+<span class="material-symbols-outlined text-amber-500 mt-0.5 text-[20px]">history_edu</span>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-slate-100">Machinery Breakdown</p>
+<p class="text-xs text-slate-500">Aug 2022 • Settled: ₹ 12.5 Lakhs</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Map / Location Visual -->
+<section class="bg-white dark:bg-[#1f1212] rounded-xl shadow-sm border border-slate-200 dark:border-red-900/10 overflow-hidden relative group">
+<div class="px-5 py-3 border-b border-slate-100 dark:border-red-900/10 bg-slate-50/50 dark:bg-white/5">
+<h3 class="font-bold text-slate-800 dark:text-slate-100 text-sm">Risk Location</h3>
+</div>
+<div class="h-48 w-full bg-slate-200 relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center opacity-80 group-hover:scale-105 transition-transform duration-700" data-alt="Satellite map view of industrial area in Pune" data-location="Pune, India" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBvH7JdOZf2CxRRGoVPk62supM71wm6Oxa92QPoHiW4zFGUww3oRL5Wm6hrdtVYlChwq8ksjhAEEiUxu8YxGL8ROd7YoPtYJTRZI3C5aFAAArBzi27L-qh7pag5HKNcgDuTRitpoF9bPkgsGtVzOtwdq0UyGvltzcjezRKS1GSLKSGOY9yCsxXgg9sXLdvNHq0vhsirEnEMe2PUtsnlpIVvt33w5pzULnZhKO08DqnfRDTuhPgu9_nBnXea74h_gw3OxYZtogObY7Cu');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-3 left-4 text-white">
+<p class="text-xs opacity-90">MIDC Industrial Area</p>
+<p class="font-bold text-sm">Pune, MH</p>
+</div>
+<div class="absolute top-3 right-3 bg-white/90 dark:bg-black/80 backdrop-blur px-2 py-1 rounded text-xs font-bold text-slate-800 dark:text-white shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[14px]">location_on</span>
+                            Verified
+                        </div>
+</div>
+</section>
+</div>
+<!-- RIGHT COLUMN: Product & Financials -->
+<div class="lg:col-span-7 flex flex-col gap-6">
+<!-- Financial Summary (High Level) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="bg-primary text-white rounded-xl p-5 shadow-lg shadow-red-900/20 relative overflow-hidden">
+<div class="absolute -right-4 -top-4 text-white/10">
+<span class="material-symbols-outlined text-[120px]">currency_rupee</span>
+</div>
+<p class="text-red-100 text-sm font-medium mb-1">Total Sum Insured</p>
+<h2 class="text-3xl font-black tracking-tight">₹ 50.00 Cr</h2>
+<div class="mt-4 pt-4 border-t border-white/20 flex justify-between items-center">
+<span class="text-xs font-medium text-red-50">Base Premium</span>
+<span class="font-bold">₹ 4,25,000</span>
+</div>
+</div>
+<div class="bg-white dark:bg-[#1f1212] rounded-xl p-5 shadow-sm border border-slate-200 dark:border-red-900/10 flex flex-col justify-between">
+<div>
+<p class="text-slate-500 text-sm font-medium mb-1">Deductibles</p>
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">5%</h2>
+<p class="text-xs text-slate-400 mt-1">Min ₹ 50,000 per claim</p>
+</div>
+</div>
+<div class="bg-white dark:bg-[#1f1212] rounded-xl p-5 shadow-sm border border-slate-200 dark:border-red-900/10 flex flex-col justify-between">
+<div>
+<p class="text-slate-500 text-sm font-medium mb-1">Policy Term</p>
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">1 Year</h2>
+<p class="text-xs text-slate-400 mt-1">01 Nov 2023 - 31 Oct 2024</p>
+</div>
+</div>
+</div>
+<!-- Product Specifics -->
+<section class="bg-white dark:bg-[#1f1212] rounded-xl shadow-sm border border-slate-200 dark:border-red-900/10 overflow-hidden flex-1">
+<div class="border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center px-2">
+<button class="px-6 py-4 text-sm font-bold text-primary border-b-2 border-primary">
+                                Policy Details
+                            </button>
+<button class="px-6 py-4 text-sm font-bold text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 transition-colors">
+                                Machine Schedule
+                            </button>
+<button class="px-6 py-4 text-sm font-bold text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 transition-colors">
+                                Documents
+                            </button>
+</div>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-3 mb-6">
+<div class="size-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300">propane</span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Boiler &amp; Pressure Plant Insurance</h3>
+<p class="text-sm text-slate-500">Standard BPP Policy • UIN: IRDAN123P0004V01</p>
+</div>
+</div>
+<div class="space-y-6">
+<!-- Coverage Details Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left">
+<thead class="text-xs text-slate-500 uppercase bg-slate-50 dark:bg-slate-800/50">
+<tr>
+<th class="px-4 py-3 rounded-l-lg">Coverage Item</th>
+<th class="px-4 py-3 text-right">Sum Insured</th>
+<th class="px-4 py-3 text-right rounded-r-lg">Premium</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr>
+<td class="px-4 py-3 font-medium text-slate-900 dark:text-white">Boilers (High Pressure) - 3 Units</td>
+<td class="px-4 py-3 text-right text-slate-600 dark:text-slate-400">₹ 35,00,00,000</td>
+<td class="px-4 py-3 text-right font-medium text-slate-900 dark:text-white">₹ 2,80,000</td>
+</tr>
+<tr>
+<td class="px-4 py-3 font-medium text-slate-900 dark:text-white">Piping &amp; Auxiliaries</td>
+<td class="px-4 py-3 text-right text-slate-600 dark:text-slate-400">₹ 10,00,00,000</td>
+<td class="px-4 py-3 text-right font-medium text-slate-900 dark:text-white">₹ 85,000</td>
+</tr>
+<tr>
+<td class="px-4 py-3 font-medium text-slate-900 dark:text-white">Surrounding Property</td>
+<td class="px-4 py-3 text-right text-slate-600 dark:text-slate-400">₹ 5,00,00,000</td>
+<td class="px-4 py-3 text-right font-medium text-slate-900 dark:text-white">₹ 60,000</td>
+</tr>
+</tbody>
+<tfoot class="border-t border-slate-200 dark:border-slate-700">
+<tr>
+<td class="px-4 py-3 font-bold text-slate-900 dark:text-white">Total</td>
+<td class="px-4 py-3 text-right font-bold text-slate-900 dark:text-white">₹ 50,00,00,000</td>
+<td class="px-4 py-3 text-right font-bold text-primary">₹ 4,25,000</td>
+</tr>
+</tfoot>
+</table>
+</div>
+<!-- Addons -->
+<div>
+<h4 class="text-sm font-bold text-slate-800 dark:text-slate-200 mb-3">Selected Add-ons</h4>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1.5 rounded-lg border border-primary/20 bg-primary/5 text-primary text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                                        Third Party Liability
+                                    </span>
+<span class="px-3 py-1.5 rounded-lg border border-primary/20 bg-primary/5 text-primary text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                                        Express Freight
+                                    </span>
+<span class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-500 text-xs font-bold dashed">
+                                        + Add Coverage
+                                    </span>
+</div>
+</div>
+<!-- Underwriter Notes Box -->
+<div class="bg-amber-50 dark:bg-amber-900/10 border border-amber-100 dark:border-amber-900/30 rounded-lg p-4">
+<h5 class="text-amber-800 dark:text-amber-200 text-xs font-bold uppercase tracking-wider mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">sticky_note_2</span>
+                                    Agent Remarks
+                                </h5>
+<p class="text-sm text-amber-900 dark:text-amber-100 italic">
+                                    "Client has recently upgraded safety protocols for Boiler #2 following the minor incident in 2022. Maintenance logs attached in Documents tab."
+                                </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Allocation History (Timeline) -->
+<section class="bg-white dark:bg-[#1f1212] rounded-xl shadow-sm border border-slate-200 dark:border-red-900/10 p-6">
+<h3 class="font-bold text-slate-800 dark:text-slate-100 text-lg mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400">history</span>
+                        Quote Timeline
+                    </h3>
+<div class="relative pl-4 border-l-2 border-slate-100 dark:border-slate-800 space-y-8">
+<!-- Step 1 -->
+<div class="relative">
+<div class="absolute -left-[21px] top-1 size-3 bg-slate-300 rounded-full border-2 border-white dark:border-[#1f1212]"></div>
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-1">
+<div>
+<h4 class="text-sm font-bold text-slate-900 dark:text-white">Quote Created</h4>
+<p class="text-xs text-slate-500">Submitted by Agent: <span class="font-semibold">Suresh Patel</span></p>
+</div>
+<span class="text-xs text-slate-400 font-mono">24 Oct, 10:30 AM</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative">
+<div class="absolute -left-[21px] top-1 size-3 bg-slate-300 rounded-full border-2 border-white dark:border-[#1f1212]"></div>
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-1">
+<div>
+<h4 class="text-sm font-bold text-slate-900 dark:text-white">System Validation</h4>
+<p class="text-xs text-slate-500">Auto-check passed. Risk score calculated.</p>
+</div>
+<span class="text-xs text-slate-400 font-mono">24 Oct, 10:32 AM</span>
+</div>
+</div>
+<!-- Step 3 (Current) -->
+<div class="relative">
+<div class="absolute -left-[23px] top-0 size-4 bg-primary rounded-full border-4 border-red-100 dark:border-red-900/40 shadow-sm"></div>
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-1 bg-red-50 dark:bg-red-900/10 -m-3 p-3 rounded-lg border border-red-100 dark:border-red-900/20">
+<div>
+<h4 class="text-sm font-bold text-primary">Routed for Manual Underwriting</h4>
+<p class="text-xs text-slate-600 dark:text-slate-300 mt-1">
+<span class="font-semibold text-slate-800 dark:text-white">Reason:</span> Sum Insured &gt; 50 Cr triggers Level 2 Authority.
+                                    </p>
+<p class="text-xs text-slate-500 mt-1">Assigned to: <span class="font-semibold text-slate-900 dark:text-white">Ravi Kumar (Senior Underwriter)</span></p>
+</div>
+<span class="text-xs text-primary font-mono font-bold">24 Oct, 11:45 AM</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<footer class="mt-auto py-6 text-center text-slate-400 dark:text-slate-600 text-xs border-t border-slate-100 dark:border-slate-800">
+<p>© 2023 Commercial Insurance Portal. All rights reserved. Confidential Information.</p>
+</footer>
+</body></html>

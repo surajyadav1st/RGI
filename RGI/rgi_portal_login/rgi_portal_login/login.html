@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RGI Partner Portal Login</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec1313",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221010",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Header / Branding Area -->
+<header class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 px-6 py-4 lg:px-12 bg-white dark:bg-[#2a1515]">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center size-8 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined">security</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">RGI Insurance</h1>
+</div>
+<div class="hidden sm:flex items-center gap-4 text-sm font-medium text-slate-600 dark:text-slate-400">
+<a class="hover:text-primary transition-colors" href="#">Support</a>
+<a class="hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col lg:flex-row">
+<!-- Left Side: Login Form -->
+<div class="flex-1 flex items-center justify-center p-6 sm:p-12 lg:p-24 bg-background-light dark:bg-background-dark">
+<div class="w-full max-w-[480px] space-y-8">
+<!-- Welcome Text -->
+<div class="space-y-2">
+<h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Partner Portal Access</h2>
+<p class="text-slate-600 dark:text-slate-400">Secure login for commercial insurance partners &amp; underwriters.</p>
+</div>
+<!-- Login Form -->
+<!--
+<form class="space-y-6" onsubmit="event.preventDefault();"> -->
+<form class="space-y-6" onsubmit="return false;">
+<!-- Partner ID Input -->
+<div class="space-y-2">
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300" for="partner-id">Partner ID</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+<span class="material-symbols-outlined text-[20px]">badge</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-3 border border-slate-300 dark:border-slate-700 rounded-lg leading-5 bg-white dark:bg-[#2a1515] placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary sm:text-sm transition-shadow duration-200" id="partner-id" name="partner-id" placeholder="Enter your Partner ID" type="text" value="partner@rgi.com"/>
+</div>
+</div>
+<!-- Password Input -->
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300" for="password">Password</label>
+<a class="text-sm font-medium text-primary hover:text-red-700" href="#">Forgot password?</a>
+</div>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+</div>
+<input class="block w-full pl-10 pr-10 py-3 border border-slate-300 dark:border-slate-700 rounded-lg leading-5 bg-white dark:bg-[#2a1515] placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary sm:text-sm transition-shadow duration-200" id="password" name="password" placeholder="Enter your password" type="password" value="demo123"/>
+<div class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
+<span class="material-symbols-outlined text-[20px]">visibility_off</span>
+</div>
+</div>
+</div>
+
+<!-- Submit Button -->
+<button
+  type="button"
+  onclick="goToDashboard()"
+  class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-bold text-white bg-primary hover:bg-red-700 transition-all duration-200">
+  Secure Login
+</button>
+
+</form>
+<script>
+  function goToDashboard() {
+    window.location.assign("partner_portal_dashboard/index.html");
+  }
+</script>
+
+<!-- Demo Credentials Hint (Styled as an alert/notice) -->
+<div class="rounded-lg bg-red-50 dark:bg-red-900/20 p-4 border border-red-100 dark:border-red-900/50 flex gap-3 items-start">
+<span class="material-symbols-outlined text-primary text-xl mt-0.5">info</span>
+<div class="text-sm">
+<p class="font-bold text-slate-800 dark:text-slate-200 mb-1">Demo Credentials</p>
+<p class="text-slate-600 dark:text-slate-400">
+                            Partner ID: <span class="font-mono bg-white dark:bg-black/30 px-1 py-0.5 rounded text-xs border border-slate-200 dark:border-slate-700">partner@rgi.com</span><br/>
+                            Password: <span class="font-mono bg-white dark:bg-black/30 px-1 py-0.5 rounded text-xs border border-slate-200 dark:border-slate-700">demo123</span>
+</p>
+</div>
+</div>
+<div class="pt-6 border-t border-slate-200 dark:border-slate-800 text-center">
+<p class="text-xs text-slate-500 dark:text-slate-500">
+                        Protected by RGI SecureAuth™ system. Unauthorized access is prohibited.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Right Side: Hero Image / Branding Panel -->
+<div class="hidden lg:block lg:w-1/2 relative bg-slate-900">
+<div class="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+<!-- Decorative red overlay -->
+<div class="absolute inset-0 z-10 bg-primary/20 mix-blend-multiply"></div>
+<img alt="Modern corporate office desk with insurance documents and laptop" class="absolute inset-0 w-full h-full object-cover" data-alt="Modern corporate office desk with insurance documents and laptop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPcSkcQRuy0EqT6Kk-2vsERdZpNpB6LZrr969LXJ8Lki7pINw_QoSiFrT3j9K173_s2H0QBR2c_cfQw5ykeTW6_OzTloOHemVx-LlKQ-cNakUj0JcCMDT63FMuvbak0ZA5l3MJnfIPBuGXt6_DjVgDAxkGkQvDNG2gJYTcoPf9xsvn_N_9a3LMTjCc03K1FA_x4MprBMfMi-PVAL6rBSsx_25QIwWu_662MXBs8s_qG9oc8tmXoKaJq6gijR8CS1-8KeQjxU5bL806"/>
+<div class="relative z-20 h-full flex flex-col justify-end p-12 text-white">
+<div class="mb-8">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-sm font-medium mb-6">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+                        Trusted by 500+ Agencies
+                    </div>
+<h3 class="text-4xl font-bold mb-4 leading-tight">Streamlined Underwriting for the Modern Era</h3>
+<p class="text-lg text-slate-200 max-w-lg">
+                        Access real-time quotes, manage policies, and connect with underwriters seamlessly through our next-gen partner portal.
+                    </p>
+</div>
+<!-- Testimonial or Stat -->
+<div class="flex items-center gap-4 pt-8 border-t border-white/20">
+<div class="flex -space-x-3">
+<img alt="User avatar" class="w-10 h-10 rounded-full border-2 border-slate-900" data-alt="Professional woman avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZUVim7PY6_2D_bfyGb3_V2GFXa5_dUdKdDq0ly9JeQ1NQoXLtqbypqxwUHO6wfJ0ithiK_yjhYdrgfAlq2qYoXXcaNQLvjztLiuMqezCk4tSQXFepcJLyx4lTSTsyDvXmElEtS2xGgETkdwZd_ki__YqlmWR0DkhWNxjW6OIIvaEcCu3fL-OgVbVgZ77Lb1cs4vNSrgFBWY4mVpKo9wfa_KI-iz4C1ur3-zO-EYdEj95uCkqYfG0nfu2Ufw9TEtkJdRNXaUvltAQx"/>
+<img alt="User avatar" class="w-10 h-10 rounded-full border-2 border-slate-900" data-alt="Professional man avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAht52GBCKSnmy_exGlMrOfRXOQSbKEPoHYXx8hq_SA2cxclyXyPbcFzLyFIafS7CMVK6ck4bOyUBEbbgutfIi_YNn3syxG5MMQtmcGV7pwyAHfa3hGJRw4U3rgw56DvD3ahJf5Q2lkiYmyzPhvvDBsUajSG9eLZ0PsujJj9WKLVV0fmbjG1naTBbj01ZySzM1HWghU9quC6tzCtrnX-SleNwjth3jPG4oOGs3RsHwbe7159Tn4XodrmAMsgaLGjcpvdNOy9LxP207e"/>
+<img alt="User avatar" class="w-10 h-10 rounded-full border-2 border-slate-900" data-alt="Professional man avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfjiIYOoDdKgQNXs9c0AW-pSPqoBqtH2uWUoqf995ub6LGxLLMKpECQboaHauH89dqx12wEzS_jpZstpdXVu-4xFC_HLceYiJOyO2P2xzJMbrs-mzF0fQqvF6Zmsb-gqjZ3Ux7YSmpAxEXsU4qNzcvf2wWmcF413SVduvZvM3G4HlWAqGPEGizSMphK34WRkLKszGgd-2SrgR23SBX_8wfFAOh5qu7hLvlrmrAq6nh5gW_bxruRW2rXoDRKK5OwHIeGPI4UdHsZYZM"/>
+</div>
+<div class="text-sm font-medium">
+<span class="block text-white">Join the network</span>
+<span class="text-slate-300">New partners added weekly</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+
+</body></html>

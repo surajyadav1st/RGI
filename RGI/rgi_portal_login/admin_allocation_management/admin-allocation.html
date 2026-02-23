@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Allocation Management</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec1313",
+                        "primary-content": "#ffffff",
+                        "primary-light": "#fdf2f2",
+                        "primary-dark": "#b91c1c",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221010",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#2d1616",
+                        "text-main": "#1b0d0d",
+                        "text-muted": "#9a4c4c",
+                        "border-light": "#f3e7e7",
+                        "border-dark": "#4a2525",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "body": ["Manrope", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        /* Custom scrollbar for table container */
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 8px;
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #e5e7eb;
+            border-radius: 4px;
+        }
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #4a2525;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main dark:text-gray-100 min-h-screen flex flex-col overflow-x-hidden transition-colors duration-200">
+<!-- Top Navigation -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark px-6 py-3 sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-text-main dark:text-white">
+<div class="size-8 flex items-center justify-center bg-primary/10 text-primary rounded-lg">
+<span class="material-symbols-outlined text-2xl">admin_panel_settings</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-tight">Admin Portal</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-text-muted hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors text-sm font-medium" href="#">Dashboard</a>
+<a class="text-primary font-bold text-sm leading-normal border-b-2 border-primary py-4 -my-4" href="#">Allocations</a>
+<a class="text-text-muted hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors text-sm font-medium" href="#">Reports</a>
+<a class="text-text-muted hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors text-sm font-medium" href="#">Settings</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="absolute inset-y-0 left-0 flex items-center pl-3 text-text-muted dark:text-gray-500 pointer-events-none">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</span>
+<input class="w-64 py-2 pl-10 pr-4 text-sm bg-background-light dark:bg-background-dark border-none rounded-lg focus:ring-2 focus:ring-primary/20 text-text-main dark:text-white placeholder:text-text-muted dark:placeholder:text-gray-600" placeholder="Search..." type="text"/>
+</div>
+<button class="relative p-2 text-text-muted hover:text-primary dark:text-gray-400 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1.5 right-1.5 size-2 bg-primary rounded-full ring-2 ring-white dark:ring-surface-dark"></span>
+</button>
+<div class="h-8 w-px bg-border-light dark:bg-border-dark mx-1"></div>
+<div class="flex items-center gap-3">
+<div class="text-right hidden md:block">
+<p class="text-xs font-bold text-text-main dark:text-white">Jane Admin</p>
+<p class="text-[10px] text-text-muted dark:text-gray-400 uppercase tracking-wider">Super User</p>
+</div>
+<div class="size-9 rounded-full bg-cover bg-center ring-2 ring-white dark:ring-surface-dark shadow-sm" data-alt="Profile picture of a woman" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAcyOHfLsCNaiUUh0Oj61Y9nTL6vSVssCPJGTYTBOrAhibnlbt4O27Uk_vvz1nr3gE-oDrPVO58mgaiXcqK8Mrfy2FwrrWsN8kAV01IX4KjfdgBihkqXJVvj6B2yF2sElUVbqf75KXPn1gAaa_CvZ49qFOvF6BYhuOgl_Qi3N4KnAufQ-1ifNGzUN2AxNhRWewmYWr9gxK1SvA5nI6bmnArLlY6V6ZfcAumXewHYHqCeTgwKP4OWy52jZLYeFzy18DHohqJzir-72o5')"></div>
+</div>
+</div>
+</header>
+<!-- Main Content Layout -->
+<main class="flex-1 flex flex-col max-w-[1440px] w-full mx-auto p-6 lg:p-10 gap-8">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2 text-text-muted dark:text-gray-400 text-sm font-medium">
+<span>Allocations</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-primary font-semibold">Rules Engine</span>
+</div>
+<h1 class="text-3xl md:text-4xl font-extrabold text-text-main dark:text-white tracking-tight">Allocation Rules Engine</h1>
+<p class="text-text-muted dark:text-gray-400 max-w-2xl">Configure how commercial insurance products are routed to your underwriting team. Set limits, logic, and primary contacts.</p>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<button class="flex items-center justify-center gap-2 px-4 py-2.5 bg-white dark:bg-surface-dark border border-border-light dark:border-border-dark rounded-lg text-sm font-bold text-text-main dark:text-white shadow-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
+<span class="material-symbols-outlined text-[20px]">file_download</span>
+                    Export CSV
+                </button>
+<button class="flex items-center justify-center gap-2 px-5 py-2.5 bg-primary hover:bg-red-700 text-white rounded-lg text-sm font-bold shadow-md shadow-red-500/20 transition-all group">
+<span class="material-symbols-outlined text-[20px] group-hover:rotate-90 transition-transform">add</span>
+                    Add New Mapping
+                </button>
+</div>
+</div>
+<!-- Filters & Controls Bar -->
+<div class="bg-surface-light dark:bg-surface-dark p-4 rounded-xl border border-border-light dark:border-border-dark shadow-sm flex flex-col lg:flex-row gap-4 justify-between items-start lg:items-center">
+<!-- Filter Pills -->
+<div class="flex flex-wrap gap-2 items-center flex-1">
+<span class="text-sm font-semibold text-text-muted dark:text-gray-500 mr-2">Quick Filters:</span>
+<button class="group flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold ring-1 ring-primary/20">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+                    All Products
+                </button>
+<button class="group flex items-center gap-2 px-3 py-1.5 rounded-full bg-background-light dark:bg-background-dark hover:bg-gray-200 dark:hover:bg-gray-800 text-text-main dark:text-gray-300 text-sm font-medium transition-colors border border-transparent hover:border-gray-300 dark:hover:border-gray-600">
+<span class="material-symbols-outlined text-[18px] text-orange-500">warning</span>
+                    Unassigned (3)
+                </button>
+<button class="group flex items-center gap-2 px-3 py-1.5 rounded-full bg-background-light dark:bg-background-dark hover:bg-gray-200 dark:hover:bg-gray-800 text-text-main dark:text-gray-300 text-sm font-medium transition-colors border border-transparent hover:border-gray-300 dark:hover:border-gray-600">
+<span class="material-symbols-outlined text-[18px] text-blue-500">bolt</span>
+                    Auto-route Rules
+                </button>
+<button class="group flex items-center gap-2 px-3 py-1.5 rounded-full bg-background-light dark:bg-background-dark hover:bg-gray-200 dark:hover:bg-gray-800 text-text-main dark:text-gray-300 text-sm font-medium transition-colors border border-transparent hover:border-gray-300 dark:hover:border-gray-600">
+<span class="material-symbols-outlined text-[18px] text-green-600">attach_money</span>
+                    High Value
+                </button>
+</div>
+<!-- Search Field -->
+<div class="w-full lg:w-auto min-w-[300px]">
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-text-muted dark:text-gray-500 group-focus-within:text-primary transition-colors">search</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-2 border border-border-light dark:border-border-dark rounded-lg leading-5 bg-background-light dark:bg-background-dark text-text-main dark:text-white placeholder-text-muted dark:placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary sm:text-sm transition-all shadow-sm" placeholder="Search by Product, Underwriter, or ID" type="text"/>
+</div>
+</div>
+</div>
+<!-- Data Table Container -->
+<div class="bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark rounded-xl overflow-hidden shadow-sm flex flex-col">
+<div class="overflow-x-auto custom-scrollbar">
+<table class="min-w-full divide-y divide-border-light dark:divide-border-dark">
+<thead class="bg-gray-50 dark:bg-[#2a1a1a]">
+<tr>
+<th class="px-6 py-4 text-left text-xs font-bold text-text-muted dark:text-gray-400 uppercase tracking-wider w-[25%]" scope="col">Product Name</th>
+<th class="px-6 py-4 text-left text-xs font-bold text-text-muted dark:text-gray-400 uppercase tracking-wider w-[30%]" scope="col">Assigned Team</th>
+<th class="px-6 py-4 text-left text-xs font-bold text-text-muted dark:text-gray-400 uppercase tracking-wider w-[20%]" scope="col">Routing Logic</th>
+<th class="px-6 py-4 text-left text-xs font-bold text-text-muted dark:text-gray-400 uppercase tracking-wider w-[15%]" scope="col">Primary Contact</th>
+<th class="px-6 py-4 text-right text-xs font-bold text-text-muted dark:text-gray-400 uppercase tracking-wider w-[10%]" scope="col">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-light dark:divide-border-dark bg-surface-light dark:bg-surface-dark">
+<!-- Row 1 -->
+<tr class="hover:bg-primary-light/30 dark:hover:bg-primary-dark/10 transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="flex-shrink-0 h-10 w-10 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined">directions_car</span>
+</div>
+<div class="ml-4">
+<div class="text-sm font-bold text-text-main dark:text-white">Commercial Auto Fleet</div>
+<div class="text-xs text-text-muted dark:text-gray-500">ID: PRD-001 • Region: North America</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700">
+<img alt="" class="h-4 w-4 rounded-full mr-1.5" data-alt="Portrait of Abhijeet" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDg6UqOI_jZUvE-_2whbF_N63Gxv71yeshOaS3rqCVfIDthkWekGOF-DmlZtQnZGav8BK3G441p5RKPmcKfW51eHYm8qZuH20Ge7vwixxnRCVXOocRgWTR03fzsIC0ICphOCnlpc4oxpDpD-6BWsq1zRUIxTuzFv5xP608YJVnIudQIy2al5i30ubN3o7mWmI8c4QjtZ3CzKFICA_bhfiQaPV872BNoR1l6dR0HGOUqDd-O3I6cx7tG8oi_KhVoAQ15rRticAwy9dKZ"/>
+                                        Abhijeet M.
+                                    </span>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700">
+<img alt="" class="h-4 w-4 rounded-full mr-1.5" data-alt="Portrait of Ravi" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlGmsRG0j_qTUSSQP9tLg8VgOGx2wR6ByMyXcFzsisYMJySwVRpjHO7DfJPaYfyjBEw6oVzVnJ-EIyW-DB7gAPOQ3nDwGKaMIu890oypThSJTuDegbRW3asTKbpzcApW4zW1T5VeCd2rbXYiFYalLXLCmS21CB1Yl1vwilrld5NloGLV9AQW_jmWVAAQ7xYvJvDONICdPRbGTiLiUMERn1zlGYPEepFSewh-pNsmRr8N_ikBRnxx8lTBX99hR9UGoTD5TOAfHOmlt8"/>
+                                        Ravi K.
+                                    </span>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700">
+<img alt="" class="h-4 w-4 rounded-full mr-1.5" data-alt="Portrait of Sarah" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMPvzGmDvV1pZqUgPE8t011z74CC87isbD1VT2kvpBBkAZWqdh1IDpsnq-xbKD7KUciTsepMFdPvIF6Frj_I3cn5jbY-AyB5NmVE54R9b0RqRWqJJHHAWX8_mDslyKxHL4uFnNdr-bzXMGMEGc83k1yDKlh-k4GyhMQYMHdq1sU8pjP3NdfXqvNKbmcNYN_ynWwo9rAt4THnwOG47uRvmRu90bJ3MysFFNYxPuvMovX0fmTC38rGfHmjEs1N51hpvWRXOFHtWSx1az"/>
+                                        Sarah J.
+                                    </span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-green-600 text-[18px]">bolt</span>
+<span class="text-sm text-text-main dark:text-gray-300 font-medium">Auto-route &lt; $50k</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<img alt="" class="h-8 w-8 rounded-full ring-2 ring-white dark:ring-surface-dark" data-alt="Portrait of Ravi" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAygqR0yOHdqpLaSKCFC3UoGDzYdDom_Vp-Wa3cw1jRe1g6i0Fq1_mkix4eN9Zl07MXTuADYv7spVek-LSMC9B2HW89rjMFPso21YfRsm6zkg-zMYi5NLMvg69gtO8nMFZ7T2nOqjFBqbgdKsqGQe-asGU1b21JQ52HGpaEh-AL6Dn_9F6jRcTbOdTTZ5RV80Tqmu4Z8Nq_SZXDyNbpFYwxl6OQIWULw3EpYelewn4kswrxS0y6MtPGgcC4evfckKPzML0R2Fvt1L0e"/>
+<div class="ml-3">
+<div class="text-sm font-medium text-text-main dark:text-white">Ravi K.</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<div class="flex justify-end gap-2 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-text-muted hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors p-1 rounded hover:bg-primary/5 dark:hover:bg-white/5">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="text-text-muted hover:text-red-600 dark:text-gray-400 dark:hover:text-red-400 transition-colors p-1 rounded hover:bg-red-50 dark:hover:bg-red-900/20">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-primary-light/30 dark:hover:bg-primary-dark/10 transition-colors group bg-gray-50/30 dark:bg-transparent">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="flex-shrink-0 h-10 w-10 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined">precision_manufacturing</span>
+</div>
+<div class="ml-4">
+<div class="text-sm font-bold text-text-main dark:text-white">Boiler &amp; Machinery</div>
+<div class="text-xs text-text-muted dark:text-gray-500">ID: PRD-042 • Region: East Coast</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700">
+<img alt="" class="h-4 w-4 rounded-full mr-1.5" data-alt="Portrait of Mike" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsd5H7p2fm49Jj-8ekvYVZDAC5_e_4Q353p3JccLNOK2S3iazgRJ8owy3Sz4nGZgBrjTKooR9-d1QW9DLHZtR4oevAPjYu1JTfo2RAcBPL1hs3DQ8eaqlNotgdmmW81MNOKI84NWZtqQameZxLUsshFcO29rr4Fge8Wf_0TAY6iR3v27KMgMdezzCzwiJSiE2G7AQ8DLXOo5J-MjlaTQ80zK_otHnh8v9_4gQK-5Kmmkl8PV6XgD30Daw3_8VsUTP7qbqHIpkYDVBm"/>
+                                        Mike T.
+                                    </span>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700">
+<img alt="" class="h-4 w-4 rounded-full mr-1.5" data-alt="Portrait of Ravi" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxnXD_29cp6VzkQPVvYQQ1lmalqCiIsuE-WJU6eD_cZlla6blS7s4vVCQMSZSklYgRE62PK5vKcbkbThEpbbyk0k32Af047UVsLFgJWFQjTk3ZzkpqYovUaMkk1T_hhItvOPEFNoBXXYlC7UguSRb32yTU23aRkOMU-dT2JW4rG5BYFt9d-dWkqtTzRGzfO06qBfLmfOab-AKW1QEfetgH7ErDQ5K-tzxczQbU-tGAHztj_BRm1PPxUg5xb83XAU1aHjq19g918Qej"/>
+                                        Ravi K.
+                                    </span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-orange-500 text-[18px]">engineering</span>
+<span class="text-sm text-text-main dark:text-gray-300 font-medium">Manual Review Only</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<img alt="" class="h-8 w-8 rounded-full ring-2 ring-white dark:ring-surface-dark" data-alt="Portrait of Mike" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5KVesULj-zC-Cn9XH9FbAVQigu4fft2HuL4US_NKm4omSDReSSyfw-skEQS0G_NP9_gjOQ5mJLi7AVuaLXShsswPobsKUTHdWga07m1qzKGB_F8g-XmTDtKYWZHEMshPKnAwFeq2cEUx7bSV4W4Hzw4ZXJOUElJrCdjscrnt1s-tVRxxrjOTHzqiVzpkVpuZ3ioG_gAVkHSqvJTOpkODvuBeCskoeOSW4WUSEMY2O_MppqpNCffFdFuLVaZf0IM4DQRjuujQvzh8O"/>
+<div class="ml-3">
+<div class="text-sm font-medium text-text-main dark:text-white">Mike T.</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<div class="flex justify-end gap-2 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-text-muted hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors p-1 rounded hover:bg-primary/5 dark:hover:bg-white/5">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="text-text-muted hover:text-red-600 dark:text-gray-400 dark:hover:text-red-400 transition-colors p-1 rounded hover:bg-red-50 dark:hover:bg-red-900/20">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-primary-light/30 dark:hover:bg-primary-dark/10 transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="flex-shrink-0 h-10 w-10 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined">security</span>
+</div>
+<div class="ml-4">
+<div class="text-sm font-bold text-text-main dark:text-white">Cyber Liability</div>
+<div class="text-xs text-text-muted dark:text-gray-500">ID: PRD-099 • Region: Global</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700">
+<img alt="" class="h-4 w-4 rounded-full mr-1.5" data-alt="Portrait of Sarah" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEcjKuX4n9OXYZGnuQyhQ4fYK3L2s8ceOrPh5-y6-dxYgBbPwwtgUocz1qT5KZ4i6rrrHHJdfqPWadulbtvFYjcspji7GpgBdZSrAGU63VgoDqBWCz7tOE-aywyt2cV9_OVdme7hfCIBIHyqdgPrq-s25c5yvBnY-9w1Aaa8abrTok1TiHaUWe_JsV_Hn-P_1GfscB38zD737FhHCRlcVz_U4P7VurY7MOKL7SAT6gJY3SLUzOeTro2cCcw_ZPE1DUGIizDfga8XPZ"/>
+                                        Sarah J.
+                                    </span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-purple-500 text-[18px]">sync</span>
+<span class="text-sm text-text-main dark:text-gray-300 font-medium">Round Robin</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<img alt="" class="h-8 w-8 rounded-full ring-2 ring-white dark:ring-surface-dark" data-alt="Portrait of Sarah" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcLZ-973_lrfZoNj1bD3Ts-A5ECR7TzOU25wTpRS6viWuv_XyR88xX7KtkoijGN-yYIFXD-fbUcwI5c9hSoJ4oWLGttq_xGwyqYOiiKlXoJFcm39K_h3CNPYI6nz8UB3Zj1BKkugX-AbztSJKbu951LiYKHwXx3fgs4HvikOx6Z_1rsUJ4YcOxSioBW_ZaBaVhMhIOdWEghIJoR3zWZ1gH3v_APKWKxT35AvoCac_v7El2a1pto5zB5UfVPxmy0PX6JsJCBKFwnrkP"/>
+<div class="ml-3">
+<div class="text-sm font-medium text-text-main dark:text-white">Sarah J.</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<div class="flex justify-end gap-2 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-text-muted hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors p-1 rounded hover:bg-primary/5 dark:hover:bg-white/5">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="text-text-muted hover:text-red-600 dark:text-gray-400 dark:hover:text-red-400 transition-colors p-1 rounded hover:bg-red-50 dark:hover:bg-red-900/20">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-primary-light/30 dark:hover:bg-primary-dark/10 transition-colors group bg-gray-50/30 dark:bg-transparent">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="flex-shrink-0 h-10 w-10 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined">house_siding</span>
+</div>
+<div class="ml-4">
+<div class="text-sm font-bold text-text-main dark:text-white">Property Damage</div>
+<div class="text-xs text-text-muted dark:text-gray-500">ID: PRD-102 • Region: West Coast</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700">
+<img alt="" class="h-4 w-4 rounded-full mr-1.5" data-alt="Portrait of Abhijeet" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPJs1sPC39NOk_mFzsO47G0o9fHhDddWb7IlGx1II8yCEuxDRs-ZVbc4OfmuaWMx4ZfVxKdaGuRBAQgYQZZ5WKK-91x3WpmsCziSL50URnESzIM5zI4H-GgavHkk_UwQqvsSCIiUbRQ0JSjxIHQbMpUz-F-AQPq71f4LaedJSIBnorf25EzdgbVSqPhmk5f8ri_lU47ZZ1qM_RzpWY1Qhb9ISavg5nIoQ2xk9ZEYWmdmlMUDKDea58Yw4-ISjtIh9j1FHw6hPxVriE"/>
+                                        Abhijeet M.
+                                    </span>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700">
+<img alt="" class="h-4 w-4 rounded-full mr-1.5" data-alt="Portrait of Mike" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIAYhsACm1RtkfOrZ0hFuqD04Izqeh0pR-DVw66j-3YrINrdaaPwpT0hFQuBS9FGoNwj1Kxsfw4KKoFO5v5C_jHNwT6YQMG8iUYO0Ut1ej53qLjR355N-oVGdN7zsj89FDkG5fSj9QmInyG9ka5R-9IrnXQBISCP2OfeLskc8nPv2so3J66__4SDlsJcBjSdrkv3ZI9b81BK8z62NV20TbQgYoHXGcHbTEt0vPbPR1fSa3w77lzR1sdl2lTKL7XzyFmxddGGMfgaJT"/>
+                                        Mike T.
+                                    </span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-gray-500 text-[18px]">public</span>
+<span class="text-sm text-text-main dark:text-gray-300 font-medium">Region: West</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<img alt="" class="h-8 w-8 rounded-full ring-2 ring-white dark:ring-surface-dark" data-alt="Portrait of Abhijeet" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_Q5E9jrBFO3Q4SOFV2qsib8e9bFuxsAxBsu0X7i7XkGrPj4r3V8a5qnGPHYEM7voLGJvI0n_Wb5WbatV_TA3AL9IjaylLliWPUBNtKZcFUcfrDGGwxZNOiPxQ91tIV5-shT960JigRu-PC6z-OMhUD2O28OZ_QpikCnY8ZTuhhAlRZUpej0pl70vvMzh5ifd0KnJfCyjOokdnCjHn9JrqbpwcfLvUWN0IKrmHe1MBzp_PIUnoE-2rn5yxctRkGUee-M8xfwrZAUPD"/>
+<div class="ml-3">
+<div class="text-sm font-medium text-text-main dark:text-white">Abhijeet M.</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<div class="flex justify-end gap-2 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-text-muted hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors p-1 rounded hover:bg-primary/5 dark:hover:bg-white/5">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="text-text-muted hover:text-red-600 dark:text-gray-400 dark:hover:text-red-400 transition-colors p-1 rounded hover:bg-red-50 dark:hover:bg-red-900/20">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5 - Alert State -->
+<tr class="hover:bg-primary-light/30 dark:hover:bg-primary-dark/10 transition-colors group border-l-4 border-l-primary bg-primary-light/20 dark:bg-primary-dark/5">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="flex-shrink-0 h-10 w-10 bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-300 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined">health_and_safety</span>
+</div>
+<div class="ml-4">
+<div class="text-sm font-bold text-text-main dark:text-white">Workers Comp</div>
+<div class="text-xs text-text-muted dark:text-gray-500">ID: PRD-055 • Region: NY</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-primary/10 text-primary border border-primary/20 animate-pulse">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+                                    Unassigned
+                                </span>
+</td>
+<td class="px-6 py-4">
+<span class="text-sm text-text-muted dark:text-gray-500 italic">No rules defined</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="text-sm text-text-muted dark:text-gray-500">--</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="inline-flex items-center px-3 py-1.5 border border-primary text-xs font-bold rounded text-primary hover:bg-primary hover:text-white transition-colors">
+                                    Assign Now
+                                </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="bg-surface-light dark:bg-surface-dark px-6 py-4 border-t border-border-light dark:border-border-dark flex items-center justify-between">
+<div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+<div>
+<p class="text-sm text-text-muted dark:text-gray-400">
+                            Showing <span class="font-bold text-text-main dark:text-white">1</span> to <span class="font-bold text-text-main dark:text-white">5</span> of <span class="font-bold text-text-main dark:text-white">145</span> mappings
+                        </p>
+</div>
+<div>
+<nav aria-label="Pagination" class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px">
+<a class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark text-sm font-medium text-text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+<span class="sr-only">Previous</span>
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</a>
+<a aria-current="page" class="z-10 bg-primary/10 border-primary text-primary relative inline-flex items-center px-4 py-2 border text-sm font-bold" href="#">
+                                1
+                            </a>
+<a class="bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark text-text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 relative inline-flex items-center px-4 py-2 border text-sm font-medium" href="#">
+                                2
+                            </a>
+<a class="bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark text-text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hidden md:inline-flex relative items-center px-4 py-2 border text-sm font-medium" href="#">
+                                3
+                            </a>
+<span class="relative inline-flex items-center px-4 py-2 border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark text-sm font-medium text-text-muted dark:text-gray-400">
+                                ...
+                            </span>
+<a class="bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark text-text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hidden md:inline-flex relative items-center px-4 py-2 border text-sm font-medium" href="#">
+                                12
+                            </a>
+<a class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark text-sm font-medium text-text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+<span class="sr-only">Next</span>
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</a>
+</nav>
+</div>
+</div>
+<!-- Mobile Pagination -->
+<div class="flex items-center justify-between sm:hidden w-full">
+<a class="relative inline-flex items-center px-4 py-2 border border-border-light dark:border-border-dark text-sm font-medium rounded-md text-text-muted dark:text-gray-400 bg-white dark:bg-surface-dark hover:bg-gray-50 dark:hover:bg-gray-800" href="#">
+                        Previous
+                    </a>
+<a class="ml-3 relative inline-flex items-center px-4 py-2 border border-border-light dark:border-border-dark text-sm font-medium rounded-md text-text-muted dark:text-gray-400 bg-white dark:bg-surface-dark hover:bg-gray-50 dark:hover:bg-gray-800" href="#">
+                        Next
+                    </a>
+</div>
+</div>
+</div>
+</main>
+</body></html>

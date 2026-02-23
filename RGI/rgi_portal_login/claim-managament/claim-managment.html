@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Claims Management | RGI Partner Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex font-display">
+<!-- Sidebar Navigation -->
+<aside class="w-72 bg-white dark:bg-slate-950 border-r border-slate-200 dark:border-slate-800 flex flex-col hidden lg:flex">
+<div class="p-6 flex items-center gap-3">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">shield_with_heart</span>
+</div>
+<div>
+<h1 class="font-bold text-lg leading-none tracking-tight">RGI Partner</h1>
+<p class="text-xs text-slate-500 dark:text-slate-400">Partner Portal</p>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1 mt-4">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">dashboard</span>
+<span class="font-medium text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">inventory_2</span>
+<span class="font-medium text-sm">Commercial Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">group_add</span>
+<span class="font-medium text-sm">Underwriter Allocation</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">request_quote</span>
+<span class="font-medium text-sm">Quotes</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">policy</span>
+<span class="font-medium text-sm">Policies</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary/10 text-primary rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">description</span>
+<span class="font-medium text-sm">Claims Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">bar_chart</span>
+<span class="font-medium text-sm">Reports</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 rounded-xl transition-colors text-sm" href="#">
+<span class="material-symbols-outlined text-[22px]">settings</span>
+                Settings
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-xl transition-colors text-sm" href="#">
+<span class="material-symbols-outlined text-[22px]">logout</span>
+                Logout
+            </a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col h-screen overflow-hidden">
+<!-- Header -->
+<header class="h-16 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-8 shrink-0">
+<div class="flex items-center gap-4">
+<h2 class="text-xl font-bold">Claims Management</h2>
+<div class="relative max-w-md hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">search</span>
+<input class="pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-900 border-none rounded-xl focus:ring-2 focus:ring-primary w-64 text-sm transition-all outline-none" placeholder="Global Search..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-xl flex items-center gap-2 font-semibold text-sm transition-all shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-xl">add_circle</span>
+                    Register New Claim
+                </button>
+<div class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Professional user profile headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5EKPqoHyU4E-hhNnWNIGKSuC_piUrTwwQFeeOlGHjJbo4nZ4pUp-1T8M6AkX1F80VhxgKGHD2CMtTU06RKpc7aDn_hYuRuhyOaoMeOFqrVSpNx-ct7WT_R_b8qLk_yMR5YPhxYk0R71R9h3OgvmMqddTJF45X3uiH5dJwJ1VDZZ6BohOo3SHutIUUJqmDaBSGRvPMSAARp9pE4fAFDvrPF6aYf3gITfUhqL2ulfeCHSd7H06JA0xNcWurQAbpj1w30MNRyGsFKPPZ"/>
+</div>
+</div>
+</header>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto p-8 space-y-8">
+<!-- Summary Stats -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white dark:bg-slate-950 p-6 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center gap-5 shadow-sm">
+<div class="p-4 bg-primary/10 rounded-xl text-primary">
+<span class="material-symbols-outlined text-3xl">pending_actions</span>
+</div>
+<div>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Total Open Claims</p>
+<h3 class="text-3xl font-bold mt-1">142</h3>
+<p class="text-xs text-green-600 font-bold flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-xs">arrow_upward</span>
+                            +12% this month
+                        </p>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-950 p-6 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center gap-5 shadow-sm">
+<div class="p-4 bg-green-100 dark:bg-green-950/40 rounded-xl text-green-600">
+<span class="material-symbols-outlined text-3xl">verified</span>
+</div>
+<div>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Claims Settled (MTD)</p>
+<h3 class="text-3xl font-bold mt-1">45</h3>
+<p class="text-xs text-green-600 font-bold flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-xs">arrow_upward</span>
+                            +5.4% from avg
+                        </p>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-950 p-6 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center gap-5 shadow-sm">
+<div class="p-4 bg-blue-100 dark:bg-blue-950/40 rounded-xl text-blue-600">
+<span class="material-symbols-outlined text-3xl">payments</span>
+</div>
+<div>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Total Payout (MTD)</p>
+<h3 class="text-3xl font-bold mt-1">€1.24M</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1 mt-1">
+                            Across 45 policies
+                        </p>
+</div>
+</div>
+</section>
+<!-- Filter Bar -->
+<section class="bg-white dark:bg-slate-950 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-wrap gap-4 items-end">
+<div class="flex-1 min-w-[200px]">
+<label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">Search Claims</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg focus:ring-1 focus:ring-primary focus:border-primary text-sm outline-none" placeholder="ID, Policy, or Name..." type="text"/>
+</div>
+</div>
+<div class="w-48">
+<label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">Product</label>
+<select class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg focus:ring-1 focus:ring-primary text-sm outline-none">
+<option>All Products</option>
+<option>CAR (Contractors All Risks)</option>
+<option>Boiler &amp; Machinery</option>
+<option>Liability</option>
+<option>Property</option>
+</select>
+</div>
+<div class="w-48">
+<label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">Status</label>
+<select class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg focus:ring-1 focus:ring-primary text-sm outline-none">
+<option>All Statuses</option>
+<option>Pending</option>
+<option>Under Review</option>
+<option>Settled</option>
+<option>Repudiated</option>
+</select>
+</div>
+<div class="w-48">
+<label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">Date Range</label>
+<button class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg flex items-center justify-between text-sm">
+<span>Last 30 Days</span>
+<span class="material-symbols-outlined text-lg">calendar_today</span>
+</button>
+</div>
+<button class="h-[38px] px-4 text-primary font-semibold text-sm hover:bg-primary/5 rounded-lg transition-colors border border-primary/20">
+                    Clear Filters
+                </button>
+</section>
+<!-- Table -->
+<section class="bg-white dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden flex flex-col">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+<tr>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">Claim ID</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">Policy Number</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">Product</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">Client Name</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase text-center">Date Reported</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase text-right">Claimed</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase text-center">Status</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase text-center">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-900">
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-900/50 transition-colors">
+<td class="px-6 py-4 font-bold text-sm">CLM-9902</td>
+<td class="px-6 py-4 text-sm font-mono text-slate-600 dark:text-slate-400 uppercase">POL-8821034</td>
+<td class="px-6 py-4 text-sm">CAR</td>
+<td class="px-6 py-4 text-sm font-medium">Global Logistics Ltd.</td>
+<td class="px-6 py-4 text-sm text-center">12 Oct 2023</td>
+<td class="px-6 py-4 text-sm font-bold text-right">€45,200</td>
+<td class="px-6 py-4 text-center">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">Pending</span>
+</td>
+<td class="px-6 py-4 text-center">
+<button class="text-primary hover:underline text-sm font-semibold">View Details</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-900/50 transition-colors">
+<td class="px-6 py-4 font-bold text-sm">CLM-9898</td>
+<td class="px-6 py-4 text-sm font-mono text-slate-600 dark:text-slate-400 uppercase">POL-1120092</td>
+<td class="px-6 py-4 text-sm">Boiler</td>
+<td class="px-6 py-4 text-sm font-medium">Precision Mills Co.</td>
+<td class="px-6 py-4 text-sm text-center">10 Oct 2023</td>
+<td class="px-6 py-4 text-sm font-bold text-right">€12,000</td>
+<td class="px-6 py-4 text-center">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300">Under Review</span>
+</td>
+<td class="px-6 py-4 text-center">
+<button class="text-primary hover:underline text-sm font-semibold">View Details</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-900/50 transition-colors">
+<td class="px-6 py-4 font-bold text-sm">CLM-9895</td>
+<td class="px-6 py-4 text-sm font-mono text-slate-600 dark:text-slate-400 uppercase">POL-0032911</td>
+<td class="px-6 py-4 text-sm">Property</td>
+<td class="px-6 py-4 text-sm font-medium">Retail King Plaza</td>
+<td class="px-6 py-4 text-sm text-center">08 Oct 2023</td>
+<td class="px-6 py-4 text-sm font-bold text-right">€240,000</td>
+<td class="px-6 py-4 text-center">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300">Settled</span>
+</td>
+<td class="px-6 py-4 text-center">
+<button class="text-primary hover:underline text-sm font-semibold">View Details</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-900/50 transition-colors">
+<td class="px-6 py-4 font-bold text-sm">CLM-9890</td>
+<td class="px-6 py-4 text-sm font-mono text-slate-600 dark:text-slate-400 uppercase">POL-5544921</td>
+<td class="px-6 py-4 text-sm">Liability</td>
+<td class="px-6 py-4 text-sm font-medium">City Transport Group</td>
+<td class="px-6 py-4 text-sm text-center">05 Oct 2023</td>
+<td class="px-6 py-4 text-sm font-bold text-right">€8,500</td>
+<td class="px-6 py-4 text-center">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300">Repudiated</span>
+</td>
+<td class="px-6 py-4 text-center">
+<button class="text-primary hover:underline text-sm font-semibold">View Details</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-900/50 transition-colors">
+<td class="px-6 py-4 font-bold text-sm">CLM-9884</td>
+<td class="px-6 py-4 text-sm font-mono text-slate-600 dark:text-slate-400 uppercase">POL-7721200</td>
+<td class="px-6 py-4 text-sm">CAR</td>
+<td class="px-6 py-4 text-sm font-medium">BuildRight Construction</td>
+<td class="px-6 py-4 text-sm text-center">01 Oct 2023</td>
+<td class="px-6 py-4 text-sm font-bold text-right">€15,200</td>
+<td class="px-6 py-4 text-center">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300">Under Review</span>
+</td>
+<td class="px-6 py-4 text-center">
+<button class="text-primary hover:underline text-sm font-semibold">View Details</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-6 py-4 border-t border-slate-100 dark:border-slate-900 flex items-center justify-between bg-slate-50/50 dark:bg-slate-900/50">
+<p class="text-sm text-slate-500 dark:text-slate-400">
+                        Showing <span class="font-bold text-slate-900 dark:text-white">1</span> to <span class="font-bold text-slate-900 dark:text-white">10</span> of <span class="font-bold text-slate-900 dark:text-white">245</span> results
+                    </p>
+<div class="flex items-center gap-2">
+<button class="p-2 border border-slate-200 dark:border-slate-800 rounded-lg hover:bg-white dark:hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors" disabled="">
+<span class="material-symbols-outlined text-lg">chevron_left</span>
+</button>
+<div class="flex items-center">
+<button class="w-8 h-8 rounded-lg bg-primary text-white font-bold text-xs">1</button>
+<button class="w-8 h-8 rounded-lg hover:bg-white dark:hover:bg-slate-800 font-medium text-xs">2</button>
+<button class="w-8 h-8 rounded-lg hover:bg-white dark:hover:bg-slate-800 font-medium text-xs">3</button>
+<span class="px-2 text-slate-400">...</span>
+<button class="w-8 h-8 rounded-lg hover:bg-white dark:hover:bg-slate-800 font-medium text-xs">25</button>
+</div>
+<button class="p-2 border border-slate-200 dark:border-slate-800 rounded-lg hover:bg-white dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+</body></html>

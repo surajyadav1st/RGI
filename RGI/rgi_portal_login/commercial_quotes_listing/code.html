@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Commercial Quotes Listing - RGI Partner Portal</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#ec1313",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221010",
+                    },
+                    fontFamily: {
+                        display: ["Manrope", "sans-serif"],
+                        sans: ["Manrope", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased overflow-hidden">
+<div class="flex h-screen w-full overflow-hidden">
+<!-- Sidebar -->
+<div class="hidden lg:flex w-72 flex-col justify-between border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 h-full overflow-y-auto">
+<div class="flex flex-col gap-6 p-6">
+<!-- User Profile Summary in Sidebar -->
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-12 shadow-sm" data-alt="Professional man in suit portrait" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAb8dMkMnsqEBUmNFFrRjtKQEVI5wVL__mLOSUSkIkz5kj5qhb_50B936joEkIMQHX6fGXuraFeIUVviPKT1-ML22vG9AcCRaK2qG_YHFD_Tca1JQLKSfZQokdhTyA2uROXGvB6LsxVhMb2e-1OEp0y460HvtHHQDQOZV05DgMbRLZLb7irw7X3elAwIKjp-MavVNEM-i9nxpxX52Pae2yp5fpKyP_JiQVsgESqUNYeiK0zLO4AZkWqDFzaG5I3upCDvTOhXGhVVSOM");'></div>
+<div class="flex flex-col">
+<h1 class="text-slate-900 dark:text-white text-base font-bold leading-tight">RGI Partner Portal</h1>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-wide">Commercial Insurance</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group" href="#">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">grid_view</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary dark:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-primary fill-1">description</span>
+<span class="text-sm font-bold">Quotes</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group" href="#">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">verified_user</span>
+<span class="text-sm font-medium">Policies</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group" href="#">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">warning</span>
+<span class="text-sm font-medium">Claims</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group" href="#">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">analytics</span>
+<span class="text-sm font-medium">Reports</span>
+</a>
+</nav>
+</div>
+<div class="p-6">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group mb-2" href="#">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+<div class="pt-4 border-t border-slate-100 dark:border-slate-800">
+<p class="text-xs text-slate-400 text-center">v2.4.0 © 2023 RGI Group</p>
+</div>
+</div>
+</div>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col h-full overflow-hidden relative">
+<!-- Top Header -->
+<header class="h-16 flex items-center justify-between px-6 lg:px-8 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shrink-0">
+<div class="flex items-center gap-4">
+<button class="lg:hidden p-1 rounded-md hover:bg-slate-100 text-slate-500">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h2 class="text-xl font-bold text-slate-900 dark:text-white hidden sm:block">Commercial Quotes</h2>
+</div>
+<div class="flex items-center gap-6">
+<!-- Search Bar -->
+<div class="hidden md:flex relative group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-400 group-focus-within:text-primary transition-colors">search</span>
+</div>
+<input class="block w-64 pl-10 pr-3 py-2 border border-slate-200 dark:border-slate-700 rounded-lg leading-5 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary sm:text-sm transition-all" placeholder="Search by Quote ID, Client..." type="text"/>
+</div>
+<div class="h-6 w-px bg-slate-200 dark:bg-slate-700"></div>
+<!-- Actions -->
+<div class="flex items-center gap-4">
+<button class="relative p-2 text-slate-400 hover:text-primary transition-colors rounded-full hover:bg-slate-50 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 block h-2 w-2 rounded-full bg-primary ring-2 ring-white dark:ring-slate-900"></span>
+</button>
+<button class="p-2 text-slate-400 hover:text-primary transition-colors rounded-full hover:bg-slate-50 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined">help</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-9 ring-2 ring-slate-100 dark:ring-slate-800 cursor-pointer" data-alt="User profile avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBY9BYNz7yzDCnRGvJgOEcJvk-djocajBSnu2TD5RZNk-vfvu8S8Ux1a1imrl7rKEIuJA57HA5571hC6OnxMrbmqBnEYxA-uwg7nbTNw_pWJC4W5YzY4HtxWN1_VhTWzWqVh8U24fi0_blsnItSgR-ms62bT8ST3IBKhFe2vUszzZEU_yUzx9MgjHXFdLbeosYDqX4ncnTIb9YlUItbUa56-0iHbOF3g8-wOhsHLsckqn9OAM2_wO21mD7Ij_itApm6udvq0x7IHPeu");'></div>
+</div>
+</div>
+</header>
+<!-- Scrollable Content -->
+<main class="flex-1 overflow-y-auto p-6 lg:p-8 bg-background-light dark:bg-background-dark">
+<div class="max-w-7xl mx-auto space-y-6">
+<!-- Breadcrumbs & Title Action -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div>
+<nav class="flex items-center gap-2 text-sm text-slate-500 mb-1">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="text-slate-300">/</span>
+<span class="text-slate-900 dark:text-slate-200 font-medium">Commercial Quotes</span>
+</nav>
+<h1 class="text-3xl font-bold text-slate-900 dark:text-white tracking-tight">Quotes Management</h1>
+</div>
+<button class="inline-flex items-center justify-center gap-2 bg-primary hover:bg-red-700 text-white px-5 py-2.5 rounded-lg font-semibold shadow-sm shadow-red-200 dark:shadow-none transition-all">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                            Create New Quote
+                        </button>
+</div>
+<!-- Stats Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col gap-1">
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Total Quotes</p>
+<div class="flex items-end justify-between">
+<span class="text-2xl font-bold text-slate-900 dark:text-white">1,248</span>
+<span class="text-xs font-medium text-green-600 bg-green-50 dark:bg-green-900/20 px-2 py-1 rounded-full">+12%</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col gap-1">
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Pending Approval</p>
+<div class="flex items-end justify-between">
+<span class="text-2xl font-bold text-slate-900 dark:text-white">45</span>
+<span class="text-xs font-medium text-orange-600 bg-orange-50 dark:bg-orange-900/20 px-2 py-1 rounded-full">+5%</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col gap-1">
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Approved</p>
+<div class="flex items-end justify-between">
+<span class="text-2xl font-bold text-slate-900 dark:text-white">892</span>
+<span class="text-xs font-medium text-green-600 bg-green-50 dark:bg-green-900/20 px-2 py-1 rounded-full">+8%</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col gap-1">
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Rejected</p>
+<div class="flex items-end justify-between">
+<span class="text-2xl font-bold text-slate-900 dark:text-white">311</span>
+<span class="text-xs font-medium text-red-600 bg-red-50 dark:bg-red-900/20 px-2 py-1 rounded-full">-2%</span>
+</div>
+</div>
+</div>
+<!-- Filter Bar -->
+<div class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
+<div class="flex flex-col lg:flex-row gap-4 items-start lg:items-end">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 flex-1 w-full">
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-semibold text-slate-500 uppercase">Product</label>
+<div class="relative">
+<select class="w-full pl-3 pr-10 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm focus:ring-primary focus:border-primary appearance-none">
+<option>All Products</option>
+<option>Contractors All Risk (CAR)</option>
+<option>Industrial All Risk (IAR)</option>
+<option>Cyber Liability</option>
+</select>
+<div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none text-slate-500">
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-semibold text-slate-500 uppercase">Underwriter</label>
+<div class="relative">
+<input class="w-full pl-3 pr-10 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm focus:ring-primary focus:border-primary" placeholder="Search Name..." type="text"/>
+<div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none text-slate-500">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-semibold text-slate-500 uppercase">Date Range</label>
+<div class="relative">
+<input class="w-full pl-3 pr-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm text-slate-500 focus:ring-primary focus:border-primary" type="date"/>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-semibold text-slate-500 uppercase">Status</label>
+<div class="relative">
+<select class="w-full pl-3 pr-10 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm focus:ring-primary focus:border-primary appearance-none">
+<option>All Statuses</option>
+<option>Pending Approval</option>
+<option>Approved</option>
+<option>Rejected</option>
+</select>
+<div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none text-slate-500">
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex gap-2 w-full lg:w-auto">
+<button class="flex-1 lg:flex-none px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">Reset</button>
+<button class="flex-1 lg:flex-none px-4 py-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg text-sm font-medium hover:bg-slate-800 dark:hover:bg-slate-200 transition-colors shadow-sm">Apply Filters</button>
+</div>
+</div>
+</div>
+<!-- Data Table -->
+<div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 text-xs uppercase text-slate-500 font-semibold tracking-wider">
+<th class="px-6 py-4">Quote ID</th>
+<th class="px-6 py-4">Product</th>
+<th class="px-6 py-4">Client Name</th>
+<th class="px-6 py-4">Sum Insured</th>
+<th class="px-6 py-4">Assigned Underwriter</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4 text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-700">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
+<td class="px-6 py-4 text-sm font-bold text-slate-900 dark:text-white">Q-2023-849</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="p-1.5 rounded-md bg-blue-50 text-blue-600">
+<span class="material-symbols-outlined text-[18px]">engineering</span>
+</div>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-200">CAR</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-300">Acme Construction Ltd.</td>
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-white">$2,500,000</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="h-6 w-6 rounded-full bg-cover bg-center border border-slate-200 dark:border-slate-600" data-alt="Female underwriter avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDmBKCKSv8pqSaacWzM7eAKQILKmnJdw3XUssVWms0D7WV5pDTe25DlqhNtZMMzGron2koqzqiNCgdEYsaKIzC9BP_56x1f3n6MOKgjKFPLcdthGwFDJAujbV-L6g47NbGI28uD_BIE0I8-9qhsaijBRHe9zVpSH3PUMw9zpoif_1ML0QWNOoYO5-RzVDGf6z6ZyG3zijgBsmf3XneWF3tNczPTyoVENaaYodRj5-W6cx18wsTwDrmqcM1GEnWZt65N2GKVqa2T8s4A");'></div>
+<span class="text-sm text-slate-600 dark:text-slate-300">Sarah Jenkins</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-50 text-amber-700 border border-amber-200">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500 mr-1.5"></span>
+                                                Pending
+                                            </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-sm font-semibold text-primary hover:text-red-700 hover:underline">View Details</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
+<td class="px-6 py-4 text-sm font-bold text-slate-900 dark:text-white">Q-2023-842</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="p-1.5 rounded-md bg-purple-50 text-purple-600">
+<span class="material-symbols-outlined text-[18px]">factory</span>
+</div>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-200">IAR</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-300">Global Logistics Inc.</td>
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-white">$12,000,000</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="h-6 w-6 rounded-full bg-cover bg-center border border-slate-200 dark:border-slate-600" data-alt="Male underwriter avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuChiKawUpgFe5XFtIInikWW622Uf8gbEKu1T07fSEkKNhlEuugGe2iubZfenuSIY12ih_vXH34BA2vQ3u-cL2O5ScyK7U1nLxb1kdgf1Utv_bXpFF0E_72JqPnr9cW0FhXzs45-sdUXK-02-bpdIGrCPY-Tt9OQKUKTtoqylPHRP0dZhaTwhFp-0UOORlcI2KIsQT4mNNgCUHjC_SjFXTpFlxV7jD_ehittZqlQQ6w0HH0UqH08SamKKWtL5rbZiSz7M0yQABOx1429");'></div>
+<span class="text-sm text-slate-600 dark:text-slate-300">Michael Chen</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-50 text-green-700 border border-green-200">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500 mr-1.5"></span>
+                                                Approved
+                                            </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-sm font-semibold text-primary hover:text-red-700 hover:underline">View Details</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
+<td class="px-6 py-4 text-sm font-bold text-slate-900 dark:text-white">Q-2023-838</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="p-1.5 rounded-md bg-indigo-50 text-indigo-600">
+<span class="material-symbols-outlined text-[18px]">security</span>
+</div>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-200">Cyber</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-300">TechFusion Startups</td>
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-white">$1,000,000</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="h-6 w-6 rounded-full bg-slate-200 dark:bg-slate-600 flex items-center justify-center text-[10px] font-bold text-slate-500 dark:text-slate-300 border border-slate-300 dark:border-slate-500">JP</div>
+<span class="text-sm text-slate-600 dark:text-slate-300">James Peterson</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-50 text-red-700 border border-red-200">
+<span class="w-1.5 h-1.5 rounded-full bg-red-500 mr-1.5"></span>
+                                                Rejected
+                                            </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-sm font-semibold text-primary hover:text-red-700 hover:underline">View Details</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
+<td class="px-6 py-4 text-sm font-bold text-slate-900 dark:text-white">Q-2023-835</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="p-1.5 rounded-md bg-blue-50 text-blue-600">
+<span class="material-symbols-outlined text-[18px]">engineering</span>
+</div>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-200">CAR</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-300">Metro Builders</td>
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-white">$5,650,000</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="h-6 w-6 rounded-full bg-cover bg-center border border-slate-200 dark:border-slate-600" data-alt="Female underwriter avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA-Mjp4MFpwtOr_8582mtUWZwHquzHXFVTb112bnWfeuXGM8sqSGSNuN6LW4903sHil-RS_xfrpcWLLVIybEmz8gVHXweAj1OKGgpoXJ2Urk4C--9W_K0IpigMMb21rRS-wqIAQEp0oyV3GUNbOsGl5P8rqKf_C4hSHBj45J0xnDb_MAU1iZE40qxlmpby8bq-ghSBjhvXS5YH9kEsrTNDHCfK0EmU7Fx4gwdBSH8BKFw00_osN8FHKjlNb3TaezP-N3ctvAJ_8r4j-");'></div>
+<span class="text-sm text-slate-600 dark:text-slate-300">Sarah Jenkins</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-50 text-amber-700 border border-amber-200">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500 mr-1.5"></span>
+                                                Pending
+                                            </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-sm font-semibold text-primary hover:text-red-700 hover:underline">View Details</button>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
+<td class="px-6 py-4 text-sm font-bold text-slate-900 dark:text-white">Q-2023-831</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="p-1.5 rounded-md bg-purple-50 text-purple-600">
+<span class="material-symbols-outlined text-[18px]">factory</span>
+</div>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-200">IAR</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-300">Northside Manufacturing</td>
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-white">$8,200,000</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="h-6 w-6 rounded-full bg-cover bg-center border border-slate-200 dark:border-slate-600" data-alt="Male underwriter avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBNW6Fwy9nRiBdnW4qNE8_svopXTw2ExgEgtADgNIFRRcprCF-OqUbpeiYHiw_CXjJ7BIqlcScyhgXHcmXas71O9Mi6nN-zoFf3uj3F1dYR8DKo1X2udX1ajq4nWxRUXnGyqtSZ3iE3zgu5GO11mee4u_qe4DD0VyRpwfrMx66vH1IXnger0mJ4-qo5i4S377ADCEnC7GQir6T1NR6VVT69I9iYG9Z7sCGr3xYS5iRfxHGJ8YZP7Lg7nBYMQgT0Pp7UlbqvmGjS8Php");'></div>
+<span class="text-sm text-slate-600 dark:text-slate-300">David Ross</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-50 text-green-700 border border-green-200">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500 mr-1.5"></span>
+                                                Approved
+                                            </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-sm font-semibold text-primary hover:text-red-700 hover:underline">View Details</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="bg-white dark:bg-slate-800 px-6 py-4 border-t border-slate-200 dark:border-slate-700 flex items-center justify-between">
+<span class="text-sm text-slate-500">Showing <span class="font-medium">1</span> to <span class="font-medium">5</span> of <span class="font-medium">1,248</span> results</span>
+<div class="flex gap-2">
+<button class="px-3 py-1 border border-slate-200 dark:border-slate-700 rounded-lg text-sm text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700 disabled:opacity-50">Previous</button>
+<button class="px-3 py-1 border border-slate-200 dark:border-slate-700 rounded-lg text-sm text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700">Next</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Commercial Products - RGI Partner Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec1313",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221010",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .sidebar-item-active {
+            background-color: rgba(236, 19, 19, 0.1);
+            color: #ec1313;
+            border-right: 3px solid #ec1313;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
+<div class="flex min-h-screen overflow-x-hidden">
+<!-- Side Navigation -->
+<aside class="w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col fixed h-full z-50">
+<div class="p-6 flex items-center gap-3">
+<div class="bg-primary rounded-lg p-2 flex items-center justify-center">
+<span class="material-symbols-outlined text-white">shield</span>
+</div>
+<div>
+<h1 class="text-slate-900 dark:text-white font-bold text-lg leading-tight">RGI Partner</h1>
+<p class="text-slate-500 text-xs font-medium">Commercial Portal</p>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1 mt-4">
+<a class="flex items-center gap-3 px-3 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-semibold">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 sidebar-item-active rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-sm font-semibold">Commercial Products</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="text-sm font-semibold">Quotes &amp; Policies</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" 
+   href="../claim-managament/claim-managment.html">
+    <span class="material-symbols-outlined">description</span>
+    <span class="text-sm font-semibold">Claims Management</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="text-sm font-semibold">Performance Reports</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-100 dark:border-slate-800">
+<a class="flex items-center gap-3 px-3 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-semibold">Settings</span>
+</a>
+<div class="mt-4 flex items-center gap-3 px-3">
+<div class="h-8 w-8 rounded-full bg-slate-200 overflow-hidden">
+<img alt="User Profile" data-alt="Corporate headshot of a male professional user" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyggDpJIIsppEmostrH_oAQSEujVIGMYuI5dMPML-DZSla8HQgZq26i_lQGZIsIidjuam_DmZ8_kXiSJY0ypbRNfyXLbGD1ClXfgg7xOCjJIA6TCKGX1m87sMvbSyx8wKd-pR6fzhwvI-OMNmo3f-rurOLH8dbuHEO35RHYzRcbXtQY6UgwS1O_xTh4bgXewiipRDhmy6-n2QIdhHDy4TdflMgopB0PSSNC0yBaED3H7LCkAWNEP0cG6p3QYUk2Vi9W2qPYdgcMLiE"/>
+</div>
+<div class="flex-1 overflow-hidden">
+<p class="text-sm font-bold truncate">Alex Morgan</p>
+<p class="text-[10px] text-slate-500 uppercase tracking-wider">Senior Agent</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 flex-1 flex flex-col">
+<!-- Header -->
+<header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-40">
+<div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<h2 class="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">Commercial Insurance Products</h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Browse and initiate quotes for all active RGI commercial lines.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="bg-slate-100 dark:bg-slate-800 p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="bg-primary text-white px-4 py-2 rounded-lg font-bold text-sm flex items-center gap-2 hover:bg-red-700 transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+                        Bulk Submission
+                    </button>
+</div>
+</div>
+</header>
+<!-- Search and Filters -->
+<section class="max-w-7xl mx-auto px-6 py-8 w-full">
+<div class="flex flex-col lg:flex-row gap-4 mb-8">
+<div class="flex-1 relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full pl-10 pr-4 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="Search products (e.g. Fire, CAR, IAR...)" type="text"/>
+</div>
+<div class="flex flex-wrap gap-2">
+<button class="px-5 py-3 bg-primary text-white rounded-xl font-semibold text-sm">All Lines</button>
+<button class="px-5 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 rounded-xl font-semibold text-sm hover:border-primary/50 transition-colors">Property</button>
+<button class="px-5 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 rounded-xl font-semibold text-sm hover:border-primary/50 transition-colors">Engineering</button>
+<button class="px-5 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 rounded-xl font-semibold text-sm hover:border-primary/50 transition-colors">Liability</button>
+<button class="px-5 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 rounded-xl font-semibold text-sm hover:border-primary/50 transition-colors flex items-center gap-2">
+                        More <span class="material-symbols-outlined text-sm">filter_list</span>
+</button>
+</div>
+</div>
+<!-- Product Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+<!-- Product Card 1 -->
+<div class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 hover:shadow-xl hover:border-primary/20 transition-all flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-primary/10 text-primary p-3 rounded-lg">
+<span class="material-symbols-outlined">engineering</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-slate-400 bg-slate-50 dark:bg-slate-800 px-2 py-1 rounded">Property</span>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors">Boiler &amp; Pressure Plant</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6 flex-1">Coverage for steam generators and pressure vessels against explosion or collapse risks.</p>
+<div class="space-y-3 mb-6">
+<div class="flex items-center gap-2 text-xs font-medium text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-base">person</span>
+                            Underwriter: <span class="text-slate-900 dark:text-slate-100 font-bold ml-auto">John Doe</span>
+</div>
+<div class="flex items-center gap-2 text-xs font-medium text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-base">policy</span>
+                            Active Policies: <span class="text-slate-900 dark:text-slate-100 font-bold ml-auto">85</span>
+</div>
+</div>
+<button class="w-full bg-primary hover:bg-red-700 text-white font-bold py-3 rounded-lg transition-all transform active:scale-95 flex items-center justify-center gap-2">
+                        Create Quote
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Product Card 2 -->
+<div class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 hover:shadow-xl hover:border-primary/20 transition-all flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-primary/10 text-primary p-3 rounded-lg">
+<span class="material-symbols-outlined">security</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-slate-400 bg-slate-50 dark:bg-slate-800 px-2 py-1 rounded">Property</span>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors">Burglary Insurance</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6 flex-1">Comprehensive protection for business assets against theft and housebreaking incidents.</p>
+<div class="space-y-3 mb-6">
+<div class="flex items-center gap-2 text-xs font-medium text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-base">person</span>
+                            Underwriter: <span class="text-slate-900 dark:text-slate-100 font-bold ml-auto">Jane Smith</span>
+</div>
+<div class="flex items-center gap-2 text-xs font-medium text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-base">policy</span>
+                            Active Policies: <span class="text-slate-900 dark:text-slate-100 font-bold ml-auto">120</span>
+</div>
+</div>
+<button class="w-full bg-primary hover:bg-red-700 text-white font-bold py-3 rounded-lg transition-all transform active:scale-95 flex items-center justify-center gap-2">
+                        Create Quote
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Product Card 3 -->
+<div class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 hover:shadow-xl hover:border-primary/20 transition-all flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-primary/10 text-primary p-3 rounded-lg">
+<span class="material-symbols-outlined">construction</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-slate-400 bg-slate-50 dark:bg-slate-800 px-2 py-1 rounded">Engineering</span>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors">Contractors All Risk (CAR)</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6 flex-1">A non-standard insurance policy providing coverage for property damage and third-party injury.</p>
+<div class="space-y-3 mb-6">
+<div class="flex items-center gap-2 text-xs font-medium text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-base">person</span>
+                            Underwriter: <span class="text-slate-900 dark:text-slate-100 font-bold ml-auto">Robert Fox</span>
+</div>
+<div class="flex items-center gap-2 text-xs font-medium text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-base">policy</span>
+                            Active Policies: <span class="text-slate-900 dark:text-slate-100 font-bold ml-auto">45</span>
+</div>
+</div>
+<button class="w-full bg-primary hover:bg-red-700 text-white font-bold py-3 rounded-lg transition-all transform active:scale-95 flex items-center justify-center gap-2">
+                        Create Quote
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Product Card 4 -->
+<div class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 hover:shadow-xl hover:border-primary/20 transition-all flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-primary/10 text-primary p-3 rounded-lg">
+<span class="material-symbols-outlined">local_fire_department</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-slate-400 bg-slate-50 dark:bg-slate-800 px-2 py-1 rounded">Property</span>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors">SFSP Insurance</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6 flex-1">Standard Fire &amp; Special Perils coverage against lightning, fire, and allied natural perils.</p>
+<div class="space-y-3 mb-6">
+<div class="flex items-center gap-2 text-xs font-medium text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-base">person</span>
+                            Underwriter: <span class="text-slate-900 dark:text-slate-100 font-bold ml-auto">Alice Wong</span>
+</div>
+<div class="flex items-center gap-2 text-xs font-medium text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-base">policy</span>
+                            Active Policies: <span class="text-slate-900 dark:text-slate-100 font-bold ml-auto">124</span>
+</div>
+</div>
+<button class="w-full bg-primary hover:bg-red-700 text-white font-bold py-3 rounded-lg transition-all transform active:scale-95 flex items-center justify-center gap-2">
+                        Create Quote
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Product Card 5 -->
+<div class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 hover:shadow-xl hover:border-primary/20 transition-all flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-primary/10 text-primary p-3 rounded-lg">
+<span class="material-symbols-outlined">settings_suggest</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-slate-400 bg-slate-50 dark:bg-slate-800 px-2 py-1 rounded">Engineering</span>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors">CPM Insurance</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6 flex-1">Coverage for contractors' plant and machinery while in use on construction sites.</p>
+<div class="space-y-3 mb-6">
+<div class="flex items-center gap-2 text-xs font-medium text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-base">person</span>
+                            Underwriter: <span class="text-slate-900 dark:text-slate-100 font-bold ml-auto">Kevin Hart</span>
+</div>
+<div class="flex items-center gap-2 text-xs font-medium text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-base">policy</span>
+                            Active Policies: <span class="text-slate-900 dark:text-slate-100 font-bold ml-auto">67</span>
+</div>
+</div>
+<button class="w-full bg-primary hover:bg-red-700 text-white font-bold py-3 rounded-lg transition-all transform active:scale-95 flex items-center justify-center gap-2">
+                        Create Quote
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Product Card 6 -->
+<div class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 hover:shadow-xl hover:border-primary/20 transition-all flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-primary/10 text-primary p-3 rounded-lg">
+<span class="material-symbols-outlined">factory</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-slate-400 bg-slate-50 dark:bg-slate-800 px-2 py-1 rounded">All Risk</span>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors">Industrial All Risk (IAR)</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6 flex-1">Comprehensive policy for industrial assets covering all accidental losses or damages.</p>
+<div class="space-y-3 mb-6">
+<div class="flex items-center gap-2 text-xs font-medium text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-base">person</span>
+                            Underwriter: <span class="text-slate-900 dark:text-slate-100 font-bold ml-auto">Sarah Lee</span>
+</div>
+<div class="flex items-center gap-2 text-xs font-medium text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-base">policy</span>
+                            Active Policies: <span class="text-slate-900 dark:text-slate-100 font-bold ml-auto">32</span>
+</div>
+</div>
+<button class="w-full bg-primary hover:bg-red-700 text-white font-bold py-3 rounded-lg transition-all transform active:scale-95 flex items-center justify-center gap-2">
+                        Create Quote
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Product Card 7 -->
+<div class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 hover:shadow-xl hover:border-primary/20 transition-all flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-primary/10 text-primary p-3 rounded-lg">
+<span class="material-symbols-outlined">laptop_mac</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-slate-400 bg-slate-50 dark:bg-slate-800 px-2 py-1 rounded">Specialty</span>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors">EEI Insurance</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6 flex-1">Coverage for hardware and software systems against electrical and mechanical breakdown.</p>
+<div class="space-y-3 mb-6">
+<div class="flex items-center gap-2 text-xs font-medium text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-base">person</span>
+                            Underwriter: <span class="text-slate-900 dark:text-slate-100 font-bold ml-auto">David Chen</span>
+</div>
+<div class="flex items-center gap-2 text-xs font-medium text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-base">policy</span>
+                            Active Policies: <span class="text-slate-900 dark:text-slate-100 font-bold ml-auto">210</span>
+</div>
+</div>
+<button class="w-full bg-primary hover:bg-red-700 text-white font-bold py-3 rounded-lg transition-all transform active:scale-95 flex items-center justify-center gap-2">
+                        Create Quote
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Product Card 8 -->
+<div class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 hover:shadow-xl hover:border-primary/20 transition-all flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-primary/10 text-primary p-3 rounded-lg">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-slate-400 bg-slate-50 dark:bg-slate-800 px-2 py-1 rounded">Liability</span>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors">Fidelity Guarantee</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6 flex-1">Protects the employer from financial loss sustained through acts of dishonesty by employees.</p>
+<div class="space-y-3 mb-6">
+<div class="flex items-center gap-2 text-xs font-medium text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-base">person</span>
+                            Underwriter: <span class="text-slate-900 dark:text-slate-100 font-bold ml-auto">Maya Patel</span>
+</div>
+<div class="flex items-center gap-2 text-xs font-medium text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-base">policy</span>
+                            Active Policies: <span class="text-slate-900 dark:text-slate-100 font-bold ml-auto">56</span>
+</div>
+</div>
+<button class="w-full bg-primary hover:bg-red-700 text-white font-bold py-3 rounded-lg transition-all transform active:scale-95 flex items-center justify-center gap-2">
+                        Create Quote
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Empty State Example (Hidden) -->
+<section class="hidden max-w-7xl mx-auto px-6 py-20 w-full flex flex-col items-center justify-center text-center">
+<div class="bg-slate-100 dark:bg-slate-800 h-24 w-24 rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-4xl text-slate-400">search_off</span>
+</div>
+<h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">No products found</h4>
+<p class="text-slate-500 dark:text-slate-400 max-w-md">We couldn't find any insurance products matching your current search or filter criteria. Please try adjusting your settings.</p>
+<button class="mt-8 text-primary font-bold hover:underline">Clear all filters</button>
+</section>
+<!-- Footer Info -->
+<footer class="mt-auto bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-6 px-6">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-slate-400 text-sm font-medium">© 2024 RGI Insurance Partners. All Rights Reserved.</p>
+<div class="flex items-center gap-6">
+<a class="text-slate-400 hover:text-primary text-sm font-semibold transition-colors" href="#">Partner Guidelines</a>
+<a class="text-slate-400 hover:text-primary text-sm font-semibold transition-colors" href="#">Support Center</a>
+<a class="text-slate-400 hover:text-primary text-sm font-semibold transition-colors" href="#">Legal Disclaimer</a>
+</div>
+</div>
+</footer>
+</main>
+</div>
+</body></html>

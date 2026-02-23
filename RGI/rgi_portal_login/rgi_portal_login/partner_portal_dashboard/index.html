@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Partner Portal Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec1313",
+                        "primary-dark": "#b90e0e",
+                        "background-light": "#fcf8f8",
+                        "background-dark": "#221010",
+                        "surface-light": "#ffffff",
+                        "sidebar-bg": "#1a0505", // Dark red/black for sidebar
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light font-display text-slate-900 antialiased overflow-hidden">
+<div class="flex h-screen w-full bg-background-light overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="flex w-72 flex-col bg-sidebar-bg border-r border-red-900/20 text-white shrink-0 h-full overflow-y-auto">
+<div class="flex h-20 items-center gap-3 px-6 border-b border-white/10">
+<div class="flex items-center justify-center rounded-lg bg-primary p-2 text-white">
+<span class="material-symbols-outlined">shield_person</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-lg font-bold leading-none tracking-tight">RGI Partner</h1>
+<span class="text-xs text-red-200 font-medium mt-1">Portal Access</span>
+</div>
+</div>
+<nav class="flex flex-1 flex-col gap-2 p-4">
+<a class="flex items-center gap-3 rounded-lg bg-primary px-4 py-3 text-white shadow-lg shadow-red-900/20 transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-4 py-3 text-red-100 hover:bg-white/5 hover:text-white transition-colors"
+   href="../../commercial_quotes_listing_(v2)/commercial_quotes.html">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-medium">Commercial Products</span>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-4 py-3 text-red-100 hover:bg-white/5 hover:text-white transition-colors"
+   href="../../product_underwriter_allocation_view/underwriter-allocation.html">
+<span class="material-symbols-outlined">group_add</span>
+<span class="font-medium">Underwriter Allocation</span>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-4 py-3 text-red-100 hover:bg-white/5 hover:text-white transition-colors"
+  href="../../insurance_quote_details_view_(v2)/quote-details.html">
+<span class="material-symbols-outlined">request_quote</span>
+<span class="font-medium">Quotes</span>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-4 py-3 text-red-100 hover:bg-white/5 hover:text-white transition-colors" 
+href="../../reports_&_analytics_dashboard/reports.html">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="font-medium">Reports</span>
+</a>
+</nav>
+<div class="p-4 mt-auto border-t border-white/10">
+<a class="flex items-center gap-3 rounded-lg px-4 py-3 text-red-200 hover:bg-white/5 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-medium">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex flex-1 flex-col h-full overflow-hidden relative">
+<!-- Top Header -->
+<header class="flex h-20 items-center justify-between border-b border-slate-200 bg-white px-8 shrink-0">
+<div class="flex items-center gap-2 text-slate-400">
+<span class="material-symbols-outlined text-sm">home</span>
+<span class="text-sm">/</span>
+<span class="text-sm font-medium text-slate-800">Dashboard Overview</span>
+</div>
+<div class="flex items-center gap-6">
+<button class="relative rounded-full p-2 text-slate-500 hover:bg-slate-100 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 h-2.5 w-2.5 rounded-full bg-primary border-2 border-white"></span>
+</button>
+<div class="flex items-center gap-3 pl-6 border-l border-slate-200">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-bold text-slate-900">Alex Morgan</p>
+<p class="text-xs text-slate-500">Senior Partner</p>
+</div>
+<div class="h-10 w-10 rounded-full bg-slate-200 bg-cover bg-center ring-2 ring-white shadow-sm" data-alt="Portrait of a professional man in a suit" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCoR66Cxpbh4SokcJMPFuKkN_fFpNgC8hWHIp5YgWTs3nI3Mw4dKEk5gSz13zKlDpbC8cYSApDRFpSHKieZM6PGWzSR439UFByyL0l1WwJibNRAKqPCu0VHM-JV_CcNj1Hl8rbq56cjjrhVx9vxboyasr1cN3k_zd12UuAkx5S7xVX-a05XxPygPCUpdabVTYfI1E7g_DMAxApvzKHoZzfGMkhPwVfs7puUnZ4DN5g7fHNATY7KaK9vR74B3_GEToIJURQHIixC3fq_');"></div>
+</div>
+</div>
+</header>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto bg-slate-50 p-8">
+<div class="mx-auto max-w-7xl space-y-8">
+<!-- Welcome Section -->
+<div class="flex flex-col gap-1">
+<h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Welcome back, Alex</h2>
+<p class="text-slate-500">Manage your commercial allocations and review performance metrics.</p>
+</div>
+<!-- Main Action Area (Allocation) -->
+<div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+<div class="flex flex-col lg:flex-row items-end gap-6">
+<!-- Product Select -->
+<div class="flex-1 w-full space-y-2">
+<label class="text-sm font-semibold text-slate-700 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+                                    Select Insurance Product
+                                </label>
+<div class="relative">
+<select class="w-full appearance-none rounded-lg border border-slate-200 bg-slate-50 px-4 py-3.5 pr-10 text-slate-700 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary">
+<option disabled="" selected="" value="">Choose a product (e.g., CAR, SFSP)</option>
+<option value="CAR">Contractors' All Risks (CAR)</option>
+<option value="SFSP">Standard Fire &amp; Special Perils (SFSP)</option>
+<option value="EAR">Erection All Risks (EAR)</option>
+<option value="MBD">Machinery Breakdown (MBD)</option>
+</select>
+<div class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-slate-400">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Underwriter Select -->
+<div class="flex-1 w-full space-y-2">
+<label class="text-sm font-semibold text-slate-700 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">person_search</span>
+                                    Select Underwriter
+                                </label>
+<div class="relative">
+<select class="w-full appearance-none rounded-lg border border-slate-200 bg-slate-50 px-4 py-3.5 pr-10 text-slate-700 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary">
+<option disabled="" selected="" value="">Choose an underwriter</option>
+<option value="abhijeet">Abhijeet Sharma</option>
+<option value="ravi">Ravi Kumar</option>
+<option value="sarah">Sarah Jenkins</option>
+<option value="mike">Mike Ross</option>
+</select>
+<div class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-slate-400">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<button onclick="window.location.href='../../admin_allocation_management/admin-allocation.html'"  
+        class="w-full lg:w-auto shrink-0 rounded-lg bg-primary hover:bg-primary-dark text-white px-8 py-3.5 font-bold shadow-md shadow-red-500/20 transition-all flex items-center justify-center gap-2">
+    <span>Open Allocation Page</span>
+    <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- KPI Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<div class="group rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:shadow-md hover:border-red-100">
+<div class="flex items-center justify-between mb-4">
+<div class="rounded-lg bg-red-50 p-2 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">policy</span>
+</div>
+<span class="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded-full">+12%</span>
+</div>
+<p class="text-sm font-medium text-slate-500">Total Policies</p>
+<h3 class="text-3xl font-extrabold text-slate-900 mt-1">1,240</h3>
+</div>
+<!-- Card 2 -->
+<div class="group rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:shadow-md hover:border-red-100">
+<div class="flex items-center justify-between mb-4">
+<div class="rounded-lg bg-red-50 p-2 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">pending_actions</span>
+</div>
+<span class="text-xs font-bold text-amber-600 bg-amber-50 px-2 py-1 rounded-full">Action Req</span>
+</div>
+<p class="text-sm font-medium text-slate-500">Pending Quotes</p>
+<h3 class="text-3xl font-extrabold text-slate-900 mt-1">34</h3>
+</div>
+<!-- Card 3 -->
+<div class="group rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:shadow-md hover:border-red-100">
+<div class="flex items-center justify-between mb-4">
+<div class="rounded-lg bg-red-50 p-2 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">assignment_turned_in</span>
+</div>
+<span class="text-xs font-bold text-slate-500 bg-slate-100 px-2 py-1 rounded-full">This Month</span>
+</div>
+<p class="text-sm font-medium text-slate-500">Allocated Cases</p>
+<h3 class="text-3xl font-extrabold text-slate-900 mt-1">85%</h3>
+</div>
+<!-- Card 4 - Quick Actions -->
+<div class="flex flex-col justify-between rounded-xl bg-gradient-to-br from-slate-900 to-slate-800 p-6 shadow-sm text-white relative overflow-hidden">
+<!-- Background Pattern -->
+<div class="absolute -right-4 -top-4 text-white/5 pointer-events-none">
+<span class="material-symbols-outlined" style="font-size: 120px;">bolt</span>
+</div>
+<div class="relative z-10">
+<p class="text-sm font-bold text-red-400 mb-1">QUICK ACCESS</p>
+<h3 class="text-lg font-bold text-white mb-4">Shortcuts</h3>
+<div class="space-y-2">
+<button class="w-full flex items-center justify-between rounded bg-white/10 px-3 py-2 text-sm font-medium hover:bg-white/20 transition-colors">
+<span>New Quote Request</span>
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+<button class="w-full flex items-center justify-between rounded bg-white/10 px-3 py-2 text-sm font-medium hover:bg-white/20 transition-colors">
+<span>Export Monthly Report</span>
+<span class="material-symbols-outlined text-[16px]">download</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Placeholder Chart / Additional Info -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<div class="lg:col-span-2 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-bold text-slate-900">Allocation Trends</h3>
+<select class="bg-slate-50 border-none text-xs font-semibold text-slate-500 rounded py-1 px-2 focus:ring-0 cursor-pointer hover:bg-slate-100">
+<option>Last 30 Days</option>
+<option>Last Quarter</option>
+</select>
+</div>
+<!-- Mock Chart Bars -->
+<div class="flex items-end justify-between gap-2 h-48 w-full px-2">
+<div class="w-full bg-red-50 rounded-t-sm h-[40%] hover:bg-red-100 transition-colors relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">40%</div>
+</div>
+<div class="w-full bg-red-50 rounded-t-sm h-[60%] hover:bg-red-100 transition-colors relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">60%</div>
+</div>
+<div class="w-full bg-red-100 rounded-t-sm h-[50%] hover:bg-red-200 transition-colors relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">50%</div>
+</div>
+<div class="w-full bg-red-50 rounded-t-sm h-[75%] hover:bg-red-100 transition-colors relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">75%</div>
+</div>
+<div class="w-full bg-primary/20 rounded-t-sm h-[45%] hover:bg-primary/30 transition-colors relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">45%</div>
+</div>
+<div class="w-full bg-primary rounded-t-sm h-[85%] hover:bg-primary-dark transition-colors relative group shadow-lg shadow-red-500/20">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">85%</div>
+</div>
+<div class="w-full bg-red-50 rounded-t-sm h-[65%] hover:bg-red-100 transition-colors relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">65%</div>
+</div>
+</div>
+<div class="flex justify-between mt-4 text-xs text-slate-400 font-medium px-2">
+<span>Mon</span>
+<span>Tue</span>
+<span>Wed</span>
+<span>Thu</span>
+<span>Fri</span>
+<span class="text-primary font-bold">Sat</span>
+<span>Sun</span>
+</div>
+</div>
+<!-- Recent Activity / News -->
+<div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm flex flex-col">
+<h3 class="font-bold text-slate-900 mb-4">Recent Allocations</h3>
+<div class="space-y-4 flex-1 overflow-y-auto pr-2">
+<div class="flex items-start gap-3 pb-3 border-b border-slate-50">
+<div class="h-8 w-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[16px]">business_center</span>
+</div>
+<div>
+<p class="text-sm font-medium text-slate-900">TechCorp Policy #921</p>
+<p class="text-xs text-slate-500 mt-0.5">Assigned to <span class="font-medium text-primary">Ravi Kumar</span></p>
+</div>
+<span class="text-[10px] text-slate-400 ml-auto whitespace-nowrap">2m ago</span>
+</div>
+<div class="flex items-start gap-3 pb-3 border-b border-slate-50">
+<div class="h-8 w-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[16px]">engineering</span>
+</div>
+<div>
+<p class="text-sm font-medium text-slate-900">BuildRight CAR</p>
+<p class="text-xs text-slate-500 mt-0.5">Assigned to <span class="font-medium text-primary">Abhijeet</span></p>
+</div>
+<span class="text-[10px] text-slate-400 ml-auto whitespace-nowrap">1h ago</span>
+</div>
+<div class="flex items-start gap-3">
+<div class="h-8 w-8 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[16px]">warning</span>
+</div>
+<div>
+<p class="text-sm font-medium text-slate-900">Factory SFSP Review</p>
+<p class="text-xs text-slate-500 mt-0.5">Pending Action</p>
+</div>
+<span class="text-[10px] text-slate-400 ml-auto whitespace-nowrap">3h ago</span>
+</div>
+</div>
+<button class="mt-4 text-sm font-bold text-primary hover:text-primary-dark text-center w-full py-2 bg-red-50 rounded hover:bg-red-100 transition-colors">
+                                View All Activity
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script>
+function gotocommerical() {
+    window.location.href = "../commercial_quotes_listing_(v2)/commercial_quotes.html";
+}
+</script>
+</body></html>

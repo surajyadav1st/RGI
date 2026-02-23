@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create New Quote | RGI Partner Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec1313",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221010",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .step-active {
+            @apply text-primary border-primary;
+        }
+        .step-inactive {
+            @apply text-slate-400 border-slate-200;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col fixed h-full">
+<div class="p-6 flex items-center gap-3">
+<div class="size-10 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">shield</span>
+</div>
+<div>
+<h1 class="text-slate-900 dark:text-white text-base font-bold leading-tight">RGI Partner Portal</h1>
+<p class="text-primary text-xs font-medium uppercase tracking-wider">Broker Dashboard</p>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1 mt-4">
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">dashboard</span>
+<span class="text-sm font-semibold">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">inventory_2</span>
+<span class="text-sm font-semibold">Commercial Products</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">assignment_ind</span>
+<span class="text-sm font-semibold">Underwriter Allocation</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 bg-primary/10 text-primary rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">description</span>
+<span class="text-sm font-semibold">Quotes</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">bar_chart</span>
+<span class="text-sm font-semibold">Reports</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-3 px-2 py-3 bg-slate-50 dark:bg-slate-800/50 rounded-xl">
+<div class="size-10 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+<img alt="User Profile" data-alt="Professional male portrait for profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRYIaRmsdxlV7jaQaY_Gyi6kQ_iunszzLZyy6CrT-7fdPP85VymcKbJbmjwkRRUccmLP6UjN6jOeAMtjACUwonrpJjfimcR-Yen57JrFix4MavQmgcuyG4BkrQHoPIir8C1FSqlVMVWmYM9t65Z4Z-i3zO1MSCN6J6BDMpU99f0qIvsXGepCRqira27BXZmEbuCubEGa_X6ukjZFYzG-g3H-gYvnnWjzBsirQUj96G72UEqUJB8hkSMTppMW_OUgSOLjTLBqyWYk-w"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-bold text-slate-900 dark:text-white truncate">John Stevenson</p>
+<p class="text-xs text-slate-500 truncate">Senior Broker</p>
+</div>
+<button class="text-slate-400 hover:text-primary">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-72 flex-1 flex flex-col min-h-screen">
+<!-- Header & Progress -->
+<header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-10">
+<div class="max-w-5xl mx-auto px-8 py-6">
+<div class="flex flex-col gap-6">
+<div class="flex justify-between items-end">
+<div>
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white">Create New Quote</h2>
+<p class="text-slate-500 text-sm mt-1">Provide client and risk details to generate a commercial insurance quotation.</p>
+</div>
+<div class="text-right">
+<span class="text-xs font-bold text-primary uppercase tracking-widest">Draft ID: #Q-98231</span>
+</div>
+</div>
+<!-- Stepper -->
+<div class="flex items-center justify-between relative">
+<div class="absolute top-1/2 left-0 w-full h-0.5 bg-slate-100 dark:bg-slate-800 -translate-y-1/2 z-0"></div>
+<!-- Step 1 -->
+<div class="relative z-10 flex flex-col items-center gap-2 bg-white dark:bg-slate-900 px-4">
+<div class="size-10 rounded-full border-2 border-primary bg-primary text-white flex items-center justify-center font-bold">1</div>
+<span class="text-xs font-bold text-primary">Client Information</span>
+</div>
+<!-- Step 2 -->
+<div class="relative z-10 flex flex-col items-center gap-2 bg-white dark:bg-slate-900 px-4">
+<div class="size-10 rounded-full border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-400 flex items-center justify-center font-bold">2</div>
+<span class="text-xs font-bold text-slate-400">Risk Details</span>
+</div>
+<!-- Step 3 -->
+<div class="relative z-10 flex flex-col items-center gap-2 bg-white dark:bg-slate-900 px-4">
+<div class="size-10 rounded-full border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-400 flex items-center justify-center font-bold">3</div>
+<span class="text-xs font-bold text-slate-400">Product Selection</span>
+</div>
+<!-- Step 4 -->
+<div class="relative z-10 flex flex-col items-center gap-2 bg-white dark:bg-slate-900 px-4">
+<div class="size-10 rounded-full border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-400 flex items-center justify-center font-bold">4</div>
+<span class="text-xs font-bold text-slate-400">Review &amp; Submit</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Form Body -->
+<div class="flex-1 max-w-5xl mx-auto w-full px-8 py-10 space-y-8 pb-32">
+<!-- Client Information Card -->
+<section class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
+<div class="px-6 py-4 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/50 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">business</span>
+<h3 class="font-bold text-slate-900 dark:text-white">Section 1: Client Information</h3>
+</div>
+<div class="p-8 grid grid-cols-2 gap-6">
+<div class="col-span-2 md:col-span-1">
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Company Name <span class="text-primary">*</span></label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:border-primary focus:ring-primary" placeholder="e.g. Global Tech Solutions Ltd" type="text"/>
+</div>
+<div class="col-span-2 md:col-span-1">
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Industry <span class="text-primary">*</span></label>
+<select class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:border-primary focus:ring-primary">
+<option value="">Select Industry</option>
+<option>Manufacturing</option>
+<option>Information Technology</option>
+<option>Construction</option>
+<option>Logistics &amp; Transport</option>
+<option>Retail</option>
+</select>
+</div>
+<div class="col-span-2 md:col-span-1">
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Contact Person <span class="text-primary">*</span></label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:border-primary focus:ring-primary" placeholder="Full Name" type="text"/>
+</div>
+<div class="col-span-2 md:col-span-1">
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Phone Number <span class="text-primary">*</span></label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm font-medium">+1</span>
+<input class="w-full pl-10 rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:border-primary focus:ring-primary" placeholder="(555) 000-0000" type="tel"/>
+</div>
+</div>
+<div class="col-span-2 md:col-span-1">
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Email Address <span class="text-primary">*</span></label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:border-primary focus:ring-primary" placeholder="contact@company.com" type="email"/>
+</div>
+<div class="col-span-2 md:col-span-1">
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Website <span class="text-slate-400 font-normal">(Optional)</span></label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:border-primary focus:ring-primary" placeholder="https://www.company.com" type="url"/>
+</div>
+<div class="col-span-2">
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Business Physical Address <span class="text-primary">*</span></label>
+<textarea class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:border-primary focus:ring-primary" placeholder="Enter full business address..." rows="3"></textarea>
+</div>
+</div>
+</section>
+<!-- Product Selection Card -->
+<section class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
+<div class="px-6 py-4 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/50 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+<h3 class="font-bold text-slate-900 dark:text-white">Section 2: Product Selection &amp; Sum Insured</h3>
+</div>
+<div class="p-8 grid grid-cols-2 gap-6">
+<div class="col-span-2 md:col-span-1">
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Insurance Product <span class="text-primary">*</span></label>
+<select class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:border-primary focus:ring-primary">
+<option value="">Select Product Type</option>
+<option>Contractors All Risk (CAR)</option>
+<option>Boiler &amp; Pressure Vessel</option>
+<option>Industrial All Risk (IAR)</option>
+<option>Professional Indemnity</option>
+<option>Public Liability</option>
+</select>
+</div>
+<div class="col-span-2 md:col-span-1">
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Total Sum Insured <span class="text-primary">*</span></label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 font-bold">$</span>
+<input class="w-full pl-8 rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:border-primary focus:ring-primary" placeholder="0.00" type="number"/>
+</div>
+</div>
+<div class="col-span-2">
+<div class="p-4 bg-primary/5 rounded-lg border border-primary/10 flex gap-4">
+<span class="material-symbols-outlined text-primary">info</span>
+<p class="text-sm text-slate-600 dark:text-slate-400">
+                                    The sum insured should represent the maximum potential loss or the replacement value of the assets being covered. Additional riders can be selected in Step 3.
+                                </p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Sticky Footer -->
+<footer class="fixed bottom-0 left-72 right-0 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 px-8 py-4 z-20">
+<div class="max-w-5xl mx-auto flex items-center justify-between">
+<button class="flex items-center gap-2 px-5 py-2.5 text-sm font-bold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">arrow_back</span>
+                        Back
+                    </button>
+<div class="flex items-center gap-4">
+<button class="px-6 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 text-sm font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                            Save as Draft
+                        </button>
+<button class="px-8 py-2.5 bg-primary text-white rounded-lg text-sm font-bold shadow-lg shadow-primary/20 hover:bg-red-700 transition-colors flex items-center gap-2">
+                            Continue to Risk Details
+                            <span class="material-symbols-outlined text-xl">arrow_forward</span>
+</button>
+</div>
+</div>
+</footer>
+</main>
+</div>
+</body></html>
